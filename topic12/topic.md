@@ -1,3 +1,3 @@
-# API Testing
+# OPTIONAL TOPIC: API Testing
 
-This topic introduces testing for web APIs, focussing on Mocha, Should and SuperTest.
+THIS IS AN EXTRA TOPIC AND COMPLETELY OPTIONAL. This topic introduces testing for web APIs.
