@@ -1,3 +1,3 @@
 Resources.
 
-UI Description samples.
+Basic DOM API samples.
