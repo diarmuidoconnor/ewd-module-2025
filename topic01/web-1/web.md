@@ -1,1 +1,3 @@
-Lecture recording.
+Lecture 1 recording.
+
+JS Objects.
