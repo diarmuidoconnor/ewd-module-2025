@@ -1,0 +1,75 @@
+Q1. Javascript is a dynamically typed language.  What does this mean?
+
+Suppose we have this data object:
+
+        let book = {
+        title: 'JavaScript: The Good Parts',
+        author: 'Douglas Crockford',
+        price:  15.17,
+        tableOfContent: {
+                chapter01: 'The Good Parts',
+                chapter02: 'Grammer',
+                chapter03: 'Objects',
+                chapter04: 'Lists',
+                chapter05: 'Functions'
+        },
+        rating: 5
+        }
+
+
+Q2. Using the subscript notation, write the statement to 
+change the rating to 6.
+
+Q3. Using the dot notation, write the statement to 
+add a publisher property to book, setting the value to 'O Reilly'
+
+Q4. What does the following statement display?
+    console.log(book.isbn)
+
+Q5. What does the following statement display?
+   console.log(book.tableOfContent.chapter01)
+
+
+Q6. In the table of content, change chapter 04 to 'Arrays'.
+
+Q7. In the table of content, add chapter 06 with name 'Methods'.
+
+Suppose the book object also has a reviews peoperty:
+
+        let book = {
+            . . . . . . . 
+            reviews: [ 
+               {text: '... bla bla bla ...', name: 'Joe Bloggs'},
+               {text: '... bla bla bla ...', name: 'Zach Smith'},
+               {text: '... bla bla bla ...', name: 'Jane Fleming'}
+            ]
+        }
+
+Q8. What does the following statement display?
+    console.log(book.reviews[1].name)
+
+Q9. The push method adds an entry to an array, 
+e.g. aryRef.push(newValue) 
+
+Write the statement to add the following object to the reviews array:
+         {test: '... bla bla bla ...', name: 'Brendan Eich'}
+[Hint: This object is the VALUE we want to add to the array.]
+
+
+Q10. Suppose the book has a method coded as follows:
+
+      let book = {
+            . . . . . . . 
+         doSomething: function(value) {
+            let result = null
+            for (let i = 0; i < this.reviews.length; i++ ) {
+                  if (this.reviews[i].name === value) { 
+                     result = this.reviews[i].text
+                     break
+                  }
+            }
+            return result;
+         }
+      }
+
+      State the objective/purpose of the method. 
