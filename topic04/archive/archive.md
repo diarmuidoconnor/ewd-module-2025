@@ -1,3 +1,3 @@
 Resources.
 
-The Counter component and the Filter Friends App
+The Filter Friends App to demonstrate data flow patterns.
