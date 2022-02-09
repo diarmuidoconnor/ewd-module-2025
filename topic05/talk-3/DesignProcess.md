@@ -1,3 +1,3 @@
-# Thinking In React.
+# Design Patterns in React.
  
-The React engineering team published a process for developing React apps, called 'Thinking In React'.
+React favours composition over inheritance. We look at some helpful composition patterns.
