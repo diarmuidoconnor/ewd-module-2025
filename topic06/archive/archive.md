@@ -1,3 +1,3 @@
 Resources.
 
-The Zoom party manager app to demonstrate the useReducer hook.
+The Filtered Friends app to demonstrate the Render Props pattern.
