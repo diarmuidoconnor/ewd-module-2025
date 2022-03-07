@@ -1,3 +1,3 @@
 Resources.
 
-Protected routes sample
+Caching sample app.

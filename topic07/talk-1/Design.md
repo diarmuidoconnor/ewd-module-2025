@@ -1,3 +1,3 @@
-# Patterns and Routing.
+# Patterns, Routing, and Performance.
  
-Patterns covered include Render Props and Provider. Routing topics include: programmitic navigation; alternative Route.
+The remaining patterns (Provider) and Routing samples. Server state caching.
