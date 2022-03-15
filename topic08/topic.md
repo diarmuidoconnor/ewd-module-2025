@@ -1,3 +1,3 @@
 # Web APIs
 
-This topic explores API design using the OpenAPI specification.
+This topic explores We APIs and introduces API Dev using Node.
