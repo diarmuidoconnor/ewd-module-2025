@@ -1,3 +1,3 @@
-# Node.js and Express
+# Express
 
 Introduction to Express, a Node.js web application framework.
