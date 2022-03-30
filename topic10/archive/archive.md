@@ -1,3 +1,3 @@
-Lab Starter Code
+Example
 
-Starter Express app for week 11
+Example Express App developed in Lecture
