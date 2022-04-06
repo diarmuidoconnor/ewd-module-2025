@@ -1,3 +1,3 @@
-# Authentication using JWT and Passport
+# Authentication using BCrypt and JWT
 
-This topic descibes how JSON Web Tokens and Passport.js can be used for authentication in Express web APIs.
+This topic describes how JSON Web Tokens can be used for authentication in Express web APIs.
