@@ -12,7 +12,7 @@ ignore    :
   # - topic01-kg
   - topic02
   # - topic03
-  - topic04
+  # - topic04
   - topic05
   - topic05-addon
   - topic06
