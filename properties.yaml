@@ -14,7 +14,7 @@ ignore    :
   # - topic03
   # - topic04
   # - topic05
-  - topic05-addon
+  # - topic05-addon
   - topic06
   - topic07
   - topic08
