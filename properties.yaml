@@ -9,18 +9,18 @@ moodle        : https://moodle.wit.ie/course/view.php?id=162937
 ignorepin : 1213
 ignore    :
   # - topic01
-  # - topic01-kg
-  #- topic02
-  # - topic03
-  # - topic04
-  # - topic05
-  # - topic05-addon
-  # - topic06
-  # - topic07
-  # - topic08
-  #- topic09
-  #- topic10
-  # - topic11
-  #- topic12
-  # - topic13
-  #- topic12
+  - topic01-kg
+  - topic02
+  - topic03
+  - topic04
+  - topic05
+  - topic05-addon
+  - topic06
+  - topic07
+  - topic08
+  - topic09
+  - topic10
+  - topic11
+  - topic12
+  - topic13
+  - topic12
