@@ -1,3 +1,3 @@
-# Javascript (Review).
+# Typescript Language.
  
-Review the syntax and semantics of the Javascript language, including changes introduced in ES6.
+A crash course on the Typescript language from a Javascript developer's perspective.
