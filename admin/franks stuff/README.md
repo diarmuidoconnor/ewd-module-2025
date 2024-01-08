@@ -32,11 +32,10 @@ NODE_ENV=development
 PORT=8080
 HOST=
 mongoDB=YourMongoURL
-seedDb=true
 secret=YourJWTSecret
 ```
 
-## Startup
+## Start-up
 Describe how to start/stop the API. You could go though the ``scripts:`` property of the *package.json* file.
 
 ## API Design
@@ -57,9 +56,9 @@ Alternatively, you could also do similar to the following:
 
 .. Give details of any authentication/ security implemented on the API. Indicate which routes are protected.
 
-### Data Design
+### Design
 
-.. Give details of the database you used and the Collections. Highlight any extra work you did, for example new Collections/Schemas or changes/additions to Movie Mongoose Schema.
+.. Give details of the database you used and the Collections. Highlight any extra work you did, for example new Mongo Collections/Entities/Services/Controllers and routers or any changes/additions to existing components.
 
 
 ## Integrating with React App

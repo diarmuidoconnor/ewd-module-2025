@@ -1,3 +1,3 @@
-Lecture Recording
+Lecture recording.
 
- Passcode: ^Fy*CWF8
+Web APis, DEv Containers, Node.js

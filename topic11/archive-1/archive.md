@@ -1,3 +1,3 @@
-Lab Starter Code
+Resources.
 
-Starter React App
+React sample app.
