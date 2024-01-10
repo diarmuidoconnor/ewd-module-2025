@@ -1,3 +1,3 @@
-#Introduction to the DOM, CSS and Bootstrap
+# Cloud Development Kit (CDK)
 
-This topic provides a introduction to key front end web technologies for this module
+An IaC framework that uses an imperative programming model for declaring infrastructure.
