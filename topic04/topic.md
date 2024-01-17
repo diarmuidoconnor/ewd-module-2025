@@ -1,3 +1,3 @@
-#  React: The Component model.
+#  Serverless REST API.
  
-Examine the core aspects of the component model, including state, hooks, and unidirectional data flow. 
+the API Gatresy service enabless Serverless REST APIs.
