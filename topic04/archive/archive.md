@@ -1,3 +1,3 @@
 Resources.
 
-UI Description samples.
+UI Description samples
