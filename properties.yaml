@@ -12,6 +12,7 @@ ignore    :
   # - topic02
   # - topic03
   # - topic05
+  - topic06
   - topic03-legacy
   - topic04-legacy
   - topic05-legacy
