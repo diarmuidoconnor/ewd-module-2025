@@ -1,3 +1,3 @@
-# ES6 topup.
+# TS Top Up.
  
-The ES6 destructuring and spread operator syntax.
+The destructuring and spread operator syntax.
