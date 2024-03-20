@@ -1,1 +1,1 @@
-import './version1';
+import './version2';

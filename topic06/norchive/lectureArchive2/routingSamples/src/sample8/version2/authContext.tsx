@@ -5,7 +5,7 @@ import { AuthContextInterface } from "../types/interfaces";
 
 export const AuthContext = createContext<AuthContextInterface | null>(null);
 
-const AuthContextProvider:React.FC<{children: React.ReactNode}> = ({ children }) => {
+const AuthContextProvider:React.FC<React.PropsWithChildren> = (props) => {
   const [token, setToken] = useState<string|null>(null);
   const location = useLocation();
   const navigate = useNavigate();
@@ -30,7 +30,7 @@ const AuthContextProvider:React.FC<{children: React.ReactNode}> = ({ children })
         signout,
       }}
     >
-      {children}
+      {props.children}
     </AuthContext.Provider>
   );
 };
