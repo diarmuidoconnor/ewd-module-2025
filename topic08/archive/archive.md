@@ -1,3 +1,3 @@
 Resources.
 
-Example code from slides/lecture
+Caching sample app.

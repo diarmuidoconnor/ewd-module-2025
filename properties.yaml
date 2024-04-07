@@ -18,7 +18,7 @@ ignore    :
   - topic05-legacy
   - topic06-legacy
   - topic07-legacy
-  - topic08
+  #- topic08
   - topic09
   - topic10
   - topic11

@@ -1,3 +1,3 @@
-# Web APIs
-
-This topic explores We APIs and introduces API Dev using Node.
+#  React Design Routing, and Performance
+ 
+Continue the explanation of both routing/navigation and design patters. 
