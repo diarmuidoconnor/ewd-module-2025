@@ -1,3 +1,3 @@
 #  React Design Routing, and Performance
  
-Continue the explanation of both routing/navigation and design patters. 
+Continue the explanation of both routing/navigation and design patterns. 
