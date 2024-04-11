@@ -1,20 +1,25 @@
-import React from "react";
+
+import type { Meta, StoryObj } from '@storybook/react';
 import MovieList from "../components/movieList";
 import SampleMovie from "./sampleData";
 import { MemoryRouter } from "react-router";
-import { action } from "@storybook/addon-actions";
+
 import AddToFavouritesIcon from "../components/cardIcons/addToFavourites";
 import Grid from "@mui/material/Grid";
 import MoviesContextProvider from "../contexts/moviesContext";
 
-export default {
+
+const meta = {
   title: "Home Page/MovieList",
   component: MovieList,
   decorators: [
-    (Story) => <MemoryRouter initialEntries={["/"]}>{Story()}</MemoryRouter>,
-    (Story) => <MoviesContextProvider>{Story()}</MoviesContextProvider>,
-  ],
-};
+      (Story) => <MemoryRouter initialEntries={["/"]}><Story /></MemoryRouter>,
+      (Story) => <MoviesContextProvider><Story /></MoviesContextProvider>,
+    ],
+    
+} satisfies Meta<typeof MovieList>;
+export default meta;
+
 
 export const Basic = () => {
   const movies = [
@@ -28,9 +33,11 @@ export const Basic = () => {
     <Grid container spacing={5}>
       <MovieList
         movies={movies}
-        action={(movie) => <AddToFavouritesIcon movie={movie} />}
+        action={(movie) => <AddToFavouritesIcon {...movie} />}
       />
     </Grid>
   );
 };
 Basic.storyName = "Default";
+
+
