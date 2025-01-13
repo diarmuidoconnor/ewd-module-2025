@@ -1,4 +1,5 @@
 Enterprise Web Development
 
-javascript · SPA · react · APIs · front-end 
+Full Stack - Serverless - IaC - CSR - AWS React 
+
 

@@ -1,3 +1,0 @@
-Lecture recording.
-
-Module overview.

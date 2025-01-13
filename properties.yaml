@@ -1,12 +1,12 @@
 highlightstyle : railscasts
-credits        : Diarmuid O' Connor, Dr Frank Walsh. WIT
+credits        : Diarmuid O' Connor, Dr Frank Walsh. SETU-Waterford
 license        : Unless otherwise stated, this work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
 ects           : 10
 faPanelicon    : fas fa-code-branch
 faColour       : "#ffd600"
 slack           : https://wit-msc-in-computing.slack.com/messages/GS3UZQFNF
 moodle        : https://moodle.wit.ie/course/view.php?id=162937
-ignorepin : 1213
+ignorepin :   1213
 ignore    :
   - topic01-kg
   - topic02
@@ -20,7 +20,7 @@ ignore    :
   - topic06-legacy
   - topic07-legacy
   - topic08-legacy
-  - topic09-legacy
+  - topic09-leg
   - topic07
   - topic08
   - topic09

@@ -1,3 +1,3 @@
 # Introduction to Typescript.
  
-The main constructs including interfaces, classes, aliases, generics, utilities.
+The main constructs including interfaces data types, classes, type aliases, generics, utility types.
