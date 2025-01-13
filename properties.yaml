@@ -4,9 +4,9 @@ license        : Unless otherwise stated, this work is licensed under a <a rel="
 ects           : 10
 faPanelicon    : fas fa-code-branch
 faColour       : "#ffd600"
-slack           : https://wit-msc-in-computing.slack.com/messages/GS3UZQFNF
-moodle        : https://moodle.wit.ie/course/view.php?id=162937
-ignorepin :   1213
+slack          : https://wit-msc-in-computing.slack.com/messages/GS3UZQFNF
+moodle         : https://moodle.wit.ie/course/view.php?id=162937
+ignorepin      :   1213
 ignore    :
   - topic01-kg
   - topic02
