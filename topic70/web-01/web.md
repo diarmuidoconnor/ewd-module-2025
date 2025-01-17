@@ -1,3 +1,3 @@
-Lecture 1.
+Module Intro.
 
-Module overview. TS introduction.
+Context and overview for this module.
