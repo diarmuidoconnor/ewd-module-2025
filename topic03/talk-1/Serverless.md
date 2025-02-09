@@ -1,3 +1,3 @@
 # Serverless.
  
-The fundamental services available on the AWS platform.
+The fundamental serverless  services available on the AWS platform.
