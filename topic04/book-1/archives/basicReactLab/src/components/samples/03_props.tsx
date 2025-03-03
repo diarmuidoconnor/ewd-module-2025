@@ -1,19 +1,14 @@
 import React from "react";
+import { LanguageProps } from "../../types/samples/interfaces";//props interface defined in the types folder as it is shared between components.
 
-// Define a type for the props
-interface Languages {
-    heading: string;
-    languages: string[];
-};
-
-const Demo: React.FC<Languages> = (props) => {
+const Demo: React.FC<LanguageProps> = (props) => {
     return (
-        <div> 
-            <h2>{`${props.heading} Languages`}</h2>
+        <div>
+            <h1>{`${props.heading} Languages`}</h1>
             <ul>
-                {props.languages.map((language, index) => (
-                    <li key={index}>{language}</li>
-                ))}
+                    <li key={0}>{props.languages[0]}</li>
+                    <li key={1}>{props.languages[1]}</li>
+                    <li key={2}>{props.languages[2]}</li>
             </ul>
         </div>
     );

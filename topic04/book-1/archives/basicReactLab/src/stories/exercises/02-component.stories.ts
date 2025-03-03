@@ -3,10 +3,10 @@ import CourseModulesEmbeddedVars from "../../components/exercises/02_embeddedVar
 
 
 
-const meta = {
+const meta: Meta<typeof CourseModulesEmbeddedVars>  = {
   title: 'Exercises/02 - TSX embedded variable',
   component: CourseModulesEmbeddedVars,
-} satisfies Meta<typeof CourseModulesEmbeddedVars>;
+};
 
 export default meta;
 

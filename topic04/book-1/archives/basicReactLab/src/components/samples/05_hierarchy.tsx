@@ -1,46 +1,28 @@
 import React from "react";
 import WebFrameworks from "./04_iteration";
 import Languages from "./03_props";
+import { FrameworkProps, LanguageProps } from "../../types/samples/interfaces";
 
-// Define a type for the props
-type Framework = {
-    url: string;
-    name: string;
-};
-  
- type BestFrameworks = {
-    bestFrameworks: Framework[];
-    type: string;
-  };
-  
-type Languages = {
-    list: string[];
-    heading: string;
+
+//interface defined here as it is only relevant to a single component.
+ interface TechnologiesProps {
+    frameworkProps: FrameworkProps;
+    languageProps: LanguageProps;
   };
 
- type Tech = {
-    frameworks: BestFrameworks;
-    languages: Languages;
-  };
-
-
-type DemoProps = {
-    tech: Tech;
-}
-
-const Demo: React.FC<DemoProps>  = (props) => {
+const Demo: React.FC<TechnologiesProps>  = ({frameworkProps,languageProps}) => {
   return (
     <>
       <WebFrameworks
-        frameworks={props.tech.frameworks.bestFrameworks}
-        type={props.tech.frameworks.type}
+        frameworks={frameworkProps.frameworks}
+        type={frameworkProps.type}
       />
       <p>
         Data sourced from <a href="https://npm-stat.com/">npm-stat.com</a>
       </p>
       <Languages
-        heading={props.tech.languages.heading}
-        languages={props.tech.languages.list}
+        heading={languageProps.heading}
+        languages={languageProps.languages}
       />
       <p>
         Data sourced from{" "}

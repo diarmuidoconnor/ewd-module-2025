@@ -1,3 +1,3 @@
-# React Fundamentals and Storybook.
+# React Fundamentals
  
-Examine the fundamentals of React's component model, including JSX, props, iteration and hierarchy. Introduce the Storybook development tool.
+React and the React component model, including TSX

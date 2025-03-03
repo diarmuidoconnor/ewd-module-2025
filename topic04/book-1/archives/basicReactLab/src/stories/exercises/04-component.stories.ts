@@ -3,15 +3,15 @@ import CourseModulesCollections from "../../components/exercises/04_iteration";
 
 
 
-const meta = {
+const meta: Meta<typeof CourseModulesCollections> = {
   title: 'Exercises/04 - iteration',
   component: CourseModulesCollections,
-} satisfies Meta<typeof CourseModulesCollections>;
+};
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
-const name = "HDip Computer Science";
+const title = "HDip Computer Science";
 const modules = [
   {
     name: "DevOps",
@@ -38,6 +38,6 @@ const modules = [
 export const Basic: Story = {
   args:{
     modules:modules,
-    course: name,
+    title: title,
   }
 };

@@ -3,10 +3,10 @@ import CourseModulesStatic from "../../components/exercises/01_staticComponent";
 
 
 
-const meta = {
+const meta: Meta<typeof CourseModulesStatic> = {
   title: 'Exercises/01 - static component',
   component: CourseModulesStatic,
-} satisfies Meta<typeof CourseModulesStatic>;
+};
 
 export default meta;
 

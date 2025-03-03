@@ -1,17 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import CourseModulesWithProps from "../../components/exercises/03_props";
 
-
-
-const meta = {
+const meta: Meta<typeof CourseModulesWithProps> = {
   title: 'Exercises/03 - component with props',
   component: CourseModulesWithProps,
-} satisfies Meta<typeof CourseModulesWithProps>;
+};
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
-const name = "MSc Enterprise Software Systems";
+const title = "HDip Computer Science";
 const twoModules = [
   {
     name: "Cloud Architecture",
@@ -28,6 +26,6 @@ const twoModules = [
 export const Basic: Story = {
   args:{
     modules:twoModules,
-    course: name,
+    title: title,
   }
 };

@@ -1,25 +1,16 @@
 import React from "react";
+import { FrameworkProps } from "../../types/samples/interfaces";//props interface defined in the types folder as it is shared between components.
 
-// Define a type for the props
-interface Framework {
-    url: string;
-    name: string;
-};
-
-interface Frameworks {
-    type: string;
-    frameworks: Framework[];
-}
-
-const Demo: React.FC<Frameworks>  = (props) => {
-  const list = props.frameworks.map((f, index) => 
+//In this example, we are destructuring the props object to get the frameworks and type properties.
+const Demo: React.FC<FrameworkProps>  = ({frameworks,type}) => {
+  const list = frameworks.map((framework, index) => 
     <li key={index}>
-      <a href={f.url}> {f.name} </a>
+      <a href={framework.url}> {framework.name} </a>
     </li>
   );
   return (
     <>
-      <h2>{props.type}</h2>
+      <h2>{type}</h2>
       <ul>{list}</ul>
     </>
   );

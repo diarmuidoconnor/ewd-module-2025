@@ -3,10 +3,10 @@ import type { Meta, StoryObj } from '@storybook/react';
 import ComponentWithProps from '../../components/samples/03_props';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
-const meta = {
+const meta: Meta<typeof ComponentWithProps> = {
   title: 'Sample/03 - component with props',
   component: ComponentWithProps,
-} satisfies Meta<typeof ComponentWithProps>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;

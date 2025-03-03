@@ -2,10 +2,10 @@ import type { Meta, StoryObj } from '@storybook/react';
 import StaticComponent from '../../components/samples/01_staticComponent';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
-const meta = {
+const meta: Meta<typeof StaticComponent> = {
     title: 'Sample/01 - static component',
     component: StaticComponent,
-} satisfies Meta<typeof StaticComponent>;
+};
 
 export default meta;
 
