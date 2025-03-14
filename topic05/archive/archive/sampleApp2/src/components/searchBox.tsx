@@ -1,5 +1,5 @@
-import React, { ChangeEvent,MouseEvent } from "react";
-//import Button from '@mui/material/Button'; 
+import React, { ChangeEvent, MouseEvent } from "react";
+import Button from '@mui/material/Button';
 
 interface SearchBoxProps {
   handleChange: (newText: string) => void;
@@ -18,10 +18,10 @@ const SearchBox: React.FC<SearchBoxProps> = props => {
     props.handleReset();
   };
 
-  return <><input type="text" placeholder="Search"
-    onChange={onChange} />
-    <button onClick={onReset}>Reset</button>
-  </>
+  return <>
+    <input type="text" placeholder="Search" onChange={onChange} />
+    <Button onClick={onReset}>Reset</Button>
+    </>
 };
 
 export default SearchBox;

@@ -4,7 +4,6 @@ import './index.css';
 import { friendProps } from "./components/friendProps";
 import SearchBox from "./components/searchBox";
 
-
 const FriendsApp: React.FC = () => {
   const [searchText, setSearchText] = useState("");
   const [friends, setFriends] = useState([]);
@@ -19,14 +18,11 @@ const FriendsApp: React.FC = () => {
       });
   },[reset]);
 
-  
-
   const filterChange = (text: string) =>
     setSearchText(text.toLowerCase());
 
   const toggleReset = () =>
     setReset(!reset);
-
 
   const filteredList = friends.filter((friend: friendProps) => {
     const friendName = friend.name.last.toLowerCase();
