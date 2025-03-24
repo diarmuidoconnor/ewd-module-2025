@@ -13,7 +13,7 @@ ignore    :
   # - topic03
   # - topic04
   #- topic05
-  - topic06
+  # - topic06
   - topic03-legacy
   - topic04-legacy
   - topic05-legacy
