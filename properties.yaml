@@ -21,7 +21,7 @@ ignore    :
   - topic07-legacy
   - topic08-legacy
   - topic09-leg
-  - topic07
+ # - topic07
   - topic08
   - topic09
   - topic09-legacy

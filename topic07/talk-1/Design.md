@@ -1,3 +1,3 @@
-# React: Navigation and Design patterns
+# React: Navigation and Routing
  
-Some further navigation and design techniques.
+Some further navigation and routing techniques.
