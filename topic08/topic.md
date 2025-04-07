@@ -1,3 +1,3 @@
-#  React Design Routing, and Performance
+#  React Performance and Caching
  
-Continue the explanation of both routing/navigation and design patterns. 
+Data fetching, server state, & performance. 

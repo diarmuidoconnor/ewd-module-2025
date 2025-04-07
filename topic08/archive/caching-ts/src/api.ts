@@ -7,7 +7,6 @@ export const getMovies = () => {
 
 export const getMovie = (id: string) => {
  
- // const { id } = idPart;
   return fetch(
     `https://api.themoviedb.org/3/movie/${id}?api_key=${
       import.meta.env.VITE_TMDB_KEY

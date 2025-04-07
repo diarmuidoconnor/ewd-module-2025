@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from "react";
+import React, { useState, useEffect, ChangeEvent } from "react";
 import FilteredMovieList from "../components/filteredMovieList";
 import { getMovies } from "../api";
 import { useQuery } from "react-query";
@@ -15,11 +15,13 @@ const HomePage: React.FC = () => {
   //OLD useState AND useEffect COMMENTED OUT. REPLACED with useQuery
   // const [movies, setMovies] = useState<BaseMovie[]>([]);
 
-  // useEffect(() => {
-  //  getMovies().then((response) => {
-  //    setMovies(response.results);
-  //  });
-  //}, []);
+  //  useEffect(() => {
+  //   getMovies().then((response) => {
+  //     setMovies(response.results);
+  // });
+  // }, []);
+
+  
   const { data, error, isLoading, isError } = useQuery<DiscoverMoviesInterface, Error>("discover", getMovies);
 
   if (isLoading) {
