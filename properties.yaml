@@ -23,7 +23,7 @@ ignore    :
   - topic09-leg
  # - topic07
   #- topic08
-  - topic09
+  # - topic09
   - topic09-legacy
   - topic10
   - topic11
