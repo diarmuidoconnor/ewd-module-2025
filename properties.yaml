@@ -10,10 +10,10 @@ ignorepin      :   1213
 ignore    :
   - topic01-kg
   # - topic02
-  # - topic03
-  # - topic04
-  #- topic05
-  # - topic06
+  - topic03
+  - topic04
+  - topic05
+  - topic06
   - topic03-legacy
   - topic04-legacy
   - topic05-legacy
