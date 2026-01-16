@@ -1,3 +1,0 @@
-TS Archive.
-
-Typescript samples.
