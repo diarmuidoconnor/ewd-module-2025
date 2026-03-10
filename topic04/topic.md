@@ -1,3 +1,3 @@
 # Introduction to React.
  
-Component Model, TSX, Storybook, Material Design. 
+Component Model, TSX, Material Design. 
