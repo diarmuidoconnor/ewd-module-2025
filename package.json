@@ -2,5 +2,10 @@
   "dependencies": {
     "tutors-json": "^2",
     "tutors-publish": "^3.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.2"
   }
 }
