@@ -1,9 +1,9 @@
 // import Friend from ....  STATIC DEPENDENCY
 import { FilteredFriendListProps } from "./friendProps";
 
-const FilteredFriendList = (props: FilteredFriendListProps) => {
-  const friends = props.list.map((item) => 
-      props.render(item)
+const FilteredFriendList = ({list, render}: FilteredFriendListProps) => {
+  const friends = list.map((item) => 
+      render(item)
   );
   return <ul>{friends}</ul>;
 };

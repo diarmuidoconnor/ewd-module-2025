@@ -1,11 +1,10 @@
 import {friendProps} from "./friendProps"
 
-const FriendImage = (props: friendProps) => {
- 
+const FriendImage = ({name,picture}: friendProps) => {
   return (
     <li>
-      <h3>{` ${props.name.first} ${props.name.last}`}</h3>
-      <img src={props.picture.medium} />
+      <h3>{` ${name.first} ${name.last}`}</h3>
+      <img src={picture.medium} />
     </li>
   );
 };

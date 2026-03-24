@@ -1,4 +1,4 @@
-import React, { useState, useEffect, ChangeEvent } from "react";
+import { useState, useEffect, ChangeEvent } from "react";
 import FilteredFriendList from "./components/filteredFriendList";
 import FriendContact from "./components/friendContact";
 import FriendImage from "./components/friendImage";

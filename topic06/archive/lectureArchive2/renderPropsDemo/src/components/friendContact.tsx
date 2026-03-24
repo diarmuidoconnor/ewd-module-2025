@@ -1,11 +1,11 @@
 import {friendProps} from "./friendProps"
 
-const Friend = (props: friendProps) => {
+const Friend = ({name,email}: friendProps) => {
   return (
     <li >
-      <h3>{` ${props.name.first} ${props.name.last}`}</h3>
-      <a href={"mailto:" + props.email}>
-        {props.email}{" "}
+      <h3>{` ${name.first} ${name.last}`}</h3>
+      <a href={"mailto:" + email}>
+        {email}{" "}
       </a>
     </li>
   );
