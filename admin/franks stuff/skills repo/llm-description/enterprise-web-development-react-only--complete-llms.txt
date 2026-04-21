@@ -1,0 +1,5785 @@
+<SYSTEM> This is the Tutors course Enterprise Web Development - React Only by Diarmuid O' Connor, Dr Frank Walsh. SETU-Waterford</SYSTEM>
+
+
+# Enterprise Web Development - React Only
+
+Enterprise Web Development - React Only
+
+
+
+
+# Course : Enterprise Web Development - React Only
+
+ 
+
+
+
+## Topic :  Introduction to React.
+
+  
+Component Model, TSX, Material Design. 
+### Side : Learning Resources
+
+ 
+#### Web : LLM Notebook
+
+ 
+A pretrained LLM on this topic
+#### Podcast : React Introduction
+
+ 
+Notebook LM generated summary podcast
+### Talk :  React Fundamentals
+
+  
+React and the React component model, including TSX
+### Talk :  Development Tools
+
+  
+Vite
+### Talk :  React Components
+
+  
+React's component model, including props, iteration and hierarchy
+### Talk :  Material UI.
+
+  
+An overview of the Material Design system and the related Material UI library.
+### Lab : Lab-React_Basics
+
+ 
+This lab guides you through the basic concepts of React. You will complete a series of exercises to produce simple UI components.
+
+**Tooling note:** The lab uses **Vite** (React + TypeScript) and a small in-app “lab runner” dropdown to preview components (instead of Storybook).
+
+#### Step :  React Basics
+
+ 
+This lab guides you through the basic concepts of React. You will complete a series of exercises to produce simple UI components.
+
+**Tooling note:** The lab uses **Vite** (React + TypeScript) and a small in-app “lab runner” dropdown to preview components (instead of Storybook).
+
+#### Step :  Startup (Vite + React + TypeScript)
+
+ 
+In this lab you will build a set of simple React components (samples + exercises) **inside a Vite project**.
+
+Download and unzip [this archive](./archives/archive.zip) and import it into VS Code. Open an integrated terminal in the editor and type:
+
+```
+npm install
+```
+
+[This installs the JS modules needed (e.g. React and its dependencies) in a local folder called `node_modules`.]
+
+This lab contains a top-level folder structure similar to the following:
+
+```
+     basicReactLab
+       |
+       |---src
+       |     |---assets
+       |     |---components
+       |     |     |---exercises
+       |     |     |---samples
+       |
+       |---node_modules
+       package.json
+```
+
+Your primary focus will be on the two sub-folders of `src/components`:  The `src/components/samplesfolder` contains the sample components discussed in the lectures; the `src/components/exercises` folder is where you will develop components in the following exercises. At the moment it  just contains placeholder components. 
+
+> **Note:** You will get Typescript compile errors with two exercise files: 03_propr.tsx and 04_interation.tsx. **You can ignore these for now as you will (hopefully!!) fix them in the exercises.**
+
+The `src/App.tsx`  contains code that lets you switch between **samples** and **exercises** in the browser and preserves Vite’s hot reload. This is included just to enable you to easily view the results of the exercises and switch to the samples - **you are not required to change or understand `App.tsx` at this stage** (you will in a few weeks though!!!)
+
+That’s it. Run `npm run dev` , follow the instructions to open the app in the browser, and use the dropdown to view the sample/exercise components.
+
+#### Step :  Exercise 1 (Static Component)
+
+ 
+Make sure the Vite dev server is still running form the last step. If not, do the following:
+
+~~~bash
+npm run dev
+~~~
+
+In the browser (Vite page), use the dropdown and select **“Sample 01 - static component”** to see an example.
+
+Suppose we want a static React component that renders a view similar to that illustrated below:
+
+![][exercise1]
+
+(Substitute your course title and module names, if necessary. For now, assume exactly two modules in the table body.)
+
+The following raw HTML table syntax is a guide for generating the modules list:
+
+~~~
+<table className="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>No lectures</th>
+      <th>No practicals</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>DevOps</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Enterprise Web Dev</td>
+      <td>3</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+~~~
+
+__You are required__ to implement the component in:
+
+- `src/components/exercises/01_staticComponent.tsx`
+
+Steps:
+
++ __Step 1__: Inspect the sample component code in `src/components/samples/01_staticComponent.tsx`.
++ __Step 2__: Open `src/components/exercises/01_staticComponent.tsx` and replace the placeholder return value with TSX that produces the output shown above.
++ __Step 3__: In the browser dropdown select **“Exercise 01 - static component”** to see your implementation.
+
+[If necessary, consult the 'Exercise 1 solution' in the last section of this lab.]
+
+[exercise1]: ./img/exercise1.png
+
+#### Step :  Exercise 2 (Embedded variables)
+
+ 
+In Exercise 1 the course data was hard-coded in the TSX (course name and module details). A slight improvement is to place the data in local variables and reference them from the TSX.
+
+__You are required__ to implement this improvement in:
+
+- `src/components/exercises/02_embeddedVars.tsx`
+
+Steps:
+
++ __Step 1__: In the browser dropdown select **“Sample 02 - embedded variables”** and inspect the code in `src/components/samples/02_embeddedVariables.tsx`.
++ **Step 2:** Copy your Exercise 1 implementation from `src/components/exercises/01_staticComponent.tsx` into `src/components/exercises/02_embeddedVars.tsx`.
++ __Step 3__: Modify the copied code to use embedded variables for its data (e.g. a two-element array for the modules). See the hint below.
++ __Step 4__: In the browser dropdown select **“Exercise 02 - embedded variables”** to see your result.
+
+**Hint:** Define a `modules` array containing 2 elements. The TSX excerpt below is a guide to part of the solution:
+
+~~~tsx
+const modules = [
+  { name: 'DevOps', noLectures: 2, noPracticals: 2 },
+  { name: 'Enterprise Web Dev', noLectures: 3, noPracticals: 2 },
+];
+~~~
+
+[If necessary, see 'Exercise 2 solution' in the last section of the lab and use as a guide.]
+
+#### Step :  Exercise 3 (Props)
+
+ 
+A further design improvement to our component is to make it **reusable** by passing the data in as **props**.
+
+__You are required__ to implement your solution in:
+
+- `src/components/exercises/03_props.tsx`
+
+Use the code from Exercise 2 as the starting point and reference `src/components/samples/03_props.tsx` as a guide.
+
+**Important:** Your component must use the same prop names used by the lab runner in `App.tsx`:
+
+- `course` (string)
+- `modules` (array)
+
+To view your work, in the browser dropdown select **“Exercise 03 - props”**.
+
+#### Step :  Exercise 4 (Iteration)
+
+ 
+In the previous exercise, the component was hard-coded to expect a module array prop of exactly two elements. It should be flexible enough to handle **any array size**.
+
+__You are required__ to implement a solution to address this requirement and place it in:
+
+- `src/components/exercises/04_iteration.tsx`
+
+Use `src/components/samples/04_iteration.tsx` as a guide.
+
+To view your work, in the browser dropdown select **“Exercise 04 - iteration”**. The output should resemble the following:
+
+![][exercise4]
+
+That completes the lab.
+
+[exercise4]: ./img/exercise4.png
+
+#### Step :  Solutions
+
+ 
+### Exercise 1 (Static Component) solution
+
+~~~tsx
+const Demo = () => {
+    return (
+        <div>
+            <h1>MSc Enterprise Software Systems - Modules Timetable</h1>
+            <table className="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>No lectures</th>
+                        <th>No practicals</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>DevOps</td>
+                        <td>2</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>Enterprise Web Dev</td>
+                        <td>3</td>
+                        <td>2</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    );
+}
+
+export { Demo };
+~~~
+
+### Exercise 2 (Embedded variables) solution
+
+~~~tsx
+const modules = [
+  { name: 'DevOps', noLectures: 2, noPracticals: 2 },
+  { name: 'Enterprise Web Dev', noLectures: 3, noPracticals: 2 },
+];
+
+const header = 'HDip Computer Science - Modules Timetable';
+
+const Demo = () => {
+   return (
+    <div>
+      <h1>{header}</h1>
+      <table className="table table-bordered">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>No lectures</th>
+            <th>No practicals</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{modules[0].name}</td>
+            <td>{modules[0].noLectures}</td>
+            <td>{modules[0].noPracticals}</td>
+          </tr>
+          <tr>
+            <td>{modules[1].name}</td>
+            <td>{modules[1].noLectures}</td>
+            <td>{modules[1].noPracticals}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+export { Demo };
+~~~
+
+### Exercise 3 (Props) solution
+
+~~~tsx
+type Module = { name: string; noLectures: number; noPracticals: number };
+
+type CourseModulesProps = {
+  course: string;
+  modules: Module[];
+};
+
+const Demo = ({ course, modules }: CourseModulesProps) => {
+  return (
+    <div>
+      <h1>{course}</h1>
+      <table className="table table-bordered">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>No lectures</th>
+            <th>No practicals</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{modules[0].name}</td>
+            <td>{modules[0].noLectures}</td>
+            <td>{modules[0].noPracticals}</td>
+          </tr>
+          <tr>
+            <td>{modules[1].name}</td>
+            <td>{modules[1].noLectures}</td>
+            <td>{modules[1].noPracticals}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+export { Demo };
+~~~
+
+### Exercise 4 (Iteration) solution
+
+~~~tsx
+type Module = { name: string; noLectures: number; noPracticals: number };
+
+type CourseModulesProps = {
+  course: string;
+  modules: Module[];
+};
+
+const Demo = ({ course, modules }: CourseModulesProps) => {
+    const rows = modules.map((module, index) => (
+    <tr key={index}>
+      <td>{module.name}</td>
+      <td>{module.noLectures}</td>
+      <td>{module.noPracticals}</td>
+    </tr>
+  ));
+
+  return (
+    <div>
+      <h1>{course}</h1>
+      <table className="table table-bordered">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>No lectures</th>
+            <th>No practicals</th>
+          </tr>
+        </thead>
+        <tbody>{rows}</tbody>
+      </table>
+    </div>
+  );
+}
+
+export { Demo };
+~~~
+
+### Lab : Lab-Vite_tool
+
+ 
+This lab introduces the Vite tool. 
+
+![Getting Started | Vite](./img/images)
+#### Step :  Vite tool.
+
+ 
+This lab introduces the Vite tool. 
+
+![Getting Started | Vite](./img/images)
+#### Step :  Startup.
+
+ 
+We will use the 'course modules' context again in this lab for convenience. 
+
+Create a new empty folder (away from `basicReactLab`). Open an ordinary operating system terminal/shell window, go to the new folder and type the commands:
+~~~
+npm create vite@latest
+~~~
+Vite asks a series of questions about the app you want to create. Use the screenshot below to guide you through the answers.
+
+<img src="./img/image-20260219105609306.png" alt="image-20260219105609306" style="zoom:50%;" />
+
+Vite will **scaffold** a React project located in a new folder called `course-app` with content similar to that illustrated below:
+
+![image-20240122224402465](./img/image-20240122224402465.png)
+
+Files with the `.tsx` extension are React component files. 
+
+Drag-n-drop the `course-app` folder into VS Code. Open an integrated terminal and install the dependencies:
+~~~
+npm install
+~~~
+
+
+
+The default app is runnable from the outset. Before proving this, we will change the configuration so that the development server uses port 3000. Replace the content of `vite.config.ts` with the following:
+
+~~~tsx
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [react()],
+  server: {
+    port: 3000
+  }
+})
+~~~
+Type the following command in the integrated terminal:
+~~~
+npm run dev
+~~~
+This command performs the following task sequence:
+
+- All the third-party modules are merged into one unit or bundle.
+- The TSX files are transpiled into plain JS.
+- The development server is started and listens on port 3000.
+
+Open a new tab in the browser and navigate to http://localhost:3000/. The server responds with index.html, the individual compiled source code modules and the bundle containing the third-party modules.
+
+![image-20240122225702204](./img/image-20240122225702204.png)
+
+Stop the development server and create a local Git repository:
+~~~
+git init
+git add -A
+git commit -m "Initial structure."
+~~~
+
+-----------------------------
+
+We will mould this skeleton app into our simple custom app. The desired user interface we want to achieve is similar to the following (Substitute the course name and module names accordingly):
+
+![][obj]
+
+The app's component hierarchy design will be as follows:
+~~~
+       App (default)
+        |
+        |
+        V
+      Programme
+        |
+        |  
+        V
+      Module
+~~~
+The App component renders a child called Course. Course renders many instances of a Module component. 
+
+[vitestart]: ./img/vitestart.png
+[scaffold]: ./img/scaffold.png
+[obj]: ./img/obj.png
+[default]: ./img/default.png
+
+#### Step :  The Components.
+
+ 
+Create a sub-folder of `src` called `types`. Create a new file, `src/types.ts` and paste in the following code:
+
+~~~typescript
+export interface ModuleProps { name: string, noLectures: number, noPracticals: number };
+export interface ProgrammeProps { title: string, modules: ModuleProps[] }
+~~~
+
+Create a sub-folder of `src` called `components`. Create a new file, `src/components/module.tsx` and paste in the following code:
+
+~~~tsx
+import type { ModuleProps } from "../types";
+
+const Module = (module: ModuleProps) => {
+
+    return (
+        <tr>
+        <td>{module.name}</td>
+        <td>{module.noLectures}</td>
+        <td>{module.noPracticals}</td>
+      </tr>
+    );
+  };
+  
+export { Module };
+
+~~~
+Create a second file, `src/components/programme.tsx` , paste in the following:
+~~~tsx
+import { Module } from "./module";
+import type { ProgrammeProps } from "../types";
+
+const Programme = ({ title, modules }: ProgrammeProps) => {
+
+    const list = modules.map((module, index) => (
+        <Module key={index} {...module} />
+    ))
+
+    return (
+        <>
+            <h2>{`${title} Modules Table`}</h2>
+            <table className="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>No. of Lectures</th>
+                        <th>No. of Practicals</th>
+                    </tr>
+                </thead>
+                <tbody>{list}</tbody>
+            </table>
+        </>
+    );
+};
+
+export { Programme };
+~~~
+Download [this SETU logo image][wit] and place it in the `src/assets` folder.
+
+In VS Code's integrated terminal window, commit the work done so far :
+~~~
+git add -A
+git commit -m "Components completed."
+~~~
+
+[wit]: ./img/setu_crest.png
+
+#### Step :  Assemble the App components.
+
+ 
+In `src/App.tsx`, replace the entire content with the following:
+~~~tsx
+import Programme from './components/programme'
+import setuCrest from "./assets/setu_crest.png";
+import './App.css'
+
+const App = () => {
+  // Substitute your module names here.
+  const modules = [
+    {
+      name: "Cloud Architecture",
+      noLectures: 1,
+      noPracticals: 2,
+    },
+    {
+      name: "Programming",
+      noLectures: 2,
+      noPracticals: 3,
+    },
+    {
+      name: "Enterprise Web Dev",
+      noLectures: 2,
+      noPracticals: 2,
+    },
+    {
+      name: "Mobile App Development",
+      noLectures: 2,
+      noPracticals: 2,
+    },
+    {
+      name: "Agile Software Development",
+      noLectures: 2,
+      noPracticals: 3,
+    },
+  ];
+  const name = "MSc Enterprise Software Systems"; // Substitute
+
+
+  return (
+    <>
+      <header className="App-header">
+        <img className="center" src={setuCrest} alt="logo" />
+      </header>
+      <div className="programme">
+        <Programme title={name} modules={modules} />
+      </div>
+    </>
+  )
+}
+
+export default App
+~~~
+Replace the content of `src/App.css` with the following:
+~~~css
+.App-header {
+  background-color: lightblue;
+  height: 200px;
+  padding: 10px;
+  color: white;
+}
+
+.programme {
+  padding: 10px;
+}
+~~~
+Assuming the server is still running (start it with 'npm run dev'), the browser should now render the desired result, except for some styling issues (see next section). You should now review all the above code developed so far to ensure you understand how the app produced it's UI.
+
+From the integrated terminal prompt, commit this work:
+~~~
+git add -A
+git commit -m "App assembled"
+~~~
+#### Step :  The Bootstrap CSS library.
+
+ 
+The current styling problem in our app is due to the omission of the Bootstrap CSS file. Stop the server and install it from the integrated terminal as follows:
+~~~
+npm install --save  bootstrap
+npm run dev
+~~~
+The traditional approach (which we won't use) to referencing CSS is by adding a link tag to `index.html`, e.g.
+~~~tsx
+<link href="... path to CSS file ..." rel="stylesheet">
+~~~
+A newer and more developer-friendly approach is to reference it directly from the JS code. Add an import to `src/main.tsx`:
+
+~~~tsx
+import 'bootstrap/dist/css/bootstrap.css';
+~~~
+and remove the line:
+~~~tsx
+import './index.css'
+~~~
+
+The app should now be rendering as planned. 
+
+Commit this work:
+~~~
+git add -A
+git commit -m "Styled with Bootstrap."
+~~~
+#### Step :  Hot Module Replacement (HMR).
+
+ 
+When a source code file/module is edited, Vite re-transpiles it and sends it down to the browser to replace the old version, i.e. Hot module replacement. HMR allows the developer to see the effect of the change immediately. As a simple example, in `src/App.tsx`, replace the line:
+~~~tsx
+  const name = "MSc Enterprise Software Systems";
+~~~
+with:
+~~~tsx
+  const name = "Master of Science in Enterprise Software Systems";
+~~~
+Save the change and switch to the browser to see the changed UI.
+
+The instant feedback of HMR also aids debugging. In `components/programme.tsx` change the line:
+~~~tsx
+  const list = modules.map((module, index) => (
+
+~~~
+with:
+~~~tsx
+  const list = allmodules.map((module, index) => (
+~~~
+The replaced module in the browser causes an error, which we discover immediately:
+
+![image-20240515131211300](./img/image-20240515131211300.png)
+
+Undo the change to fix the error.
+
+[error]: ./img/error.png
+[error2]: ./img/error2.png
+
+#### Step :  Building a production app.
+
+ 
+The app is now complete, but the development server environment is not suitable for a public-facing or production app. Transpilation should not be happening dynamically and all file sizes should be **minified**, thus improving load-time performance. To build a production-ready app, stop the development server and type the command:
+~~~
+npm run build
+~~~
+This command creates a `dist` folder for the production-quality, static form of the app:
+
+![][build]
+
+The name of the minified bundle file containing your React code is a computed hash value of its content, e.g. `index.5e85u2365.js`. This naming style aids the browser's caching operations. In `dist/index.html` the script tag references the bundle.
+
+
+To use the production version of the app, type the command:
+
+~~~
+npm run preview
+~~~
+This starts a standard web server that hosts the 'dist` folder. Open a browser at the web address given in the terminal window, e.g. http://localhost:4173/
+
+![][window]
+
+
+Notice in the project's `.gitignore` file (generated by Vite), the `/dist` folder is included - we never commit generated files/folders to a repository. Performing a git commit anytime in the future will exclude the dist files from the repository.
+
+
+
+[build]: ./img/build.png
+[window]: ./img/window.png
+
+#### Step :  Material UI.
+
+ 
+While Bootstrap is a popular CSS library, it does not allow us to implement styling consistent with the component model of React. The Material UI framework (see [here](https://material-ui.com/)) is a better fit.
+
+Add the library to your project:
+~~~
+npm install @emotion/react @emotion/styled
+npm install @mui/material
+~~~
+
+We will refactor our app to use the new library; however, we will perform the refactoring in new files for comparison.
+
+Create the file `src/AppMUI.tsx` and add this code:
+~~~tsx
+import {Programme} from './components/programme'
+import setuCrest from "./assets/setu_crest.png";
+import Box from "@mui/material/Box";
+
+const styles = {
+  appHeader: {
+    backgroundColor: "lightblue",
+    height: "200px",
+    padding: "10px",
+    color: "white",
+  },
+  course: {
+    padding: 2,
+  },
+};
+
+const App = () => {
+  const modules = [
+    {
+      name: "Cloud Architecture",
+      noLectures: 1,
+      noPracticals: 2,
+    },
+    {
+      name: "Programming",
+      noLectures: 2,
+      noPracticals: 3,
+    },
+    {
+      name: "Enterprise Web Dev",
+      noLectures: 2,
+      noPracticals: 2,
+    },
+    {
+      name: "Mobile App Development",
+      noLectures: 2,
+      noPracticals: 2,
+    },
+    {
+      name: "Agile Software Development",
+      noLectures: 2,
+      noPracticals: 3,
+    },
+  ];
+  const name = "Master of Science in Enterprise Software Systems"; // Substitute
+
+  return (
+    <>
+      <header style={styles.appHeader}>
+        <img src={setuCrest} alt="logo" />
+      </header>
+      <Box sx={styles.course}>
+        <Programme title={name} modules={modules} />
+      </Box>
+    </>
+  );
+};
+export  { App as default };
+~~~
+Some points to note in the above code:
+
++ We use the CSS-in-JS approach to declaring our custom CSS.
++ `App.css` is redundant in the above code.
++ The Box component is a generic wrapper provided by Material UI.
++ Notice we use ``sx`` instead of ``style`` property in the Box element. This is a Material-UI specific STYLING property and provides a more powerful styling options. It also accepts an object, but the keys can be any valid CSS property. See [here](https://mui.com/system/the-sx-prop/) for more details.
+
+In `src/main.tsx`, replace the line:
+~~~tsx
+import App from './App.tsx';
+~~~
+with:
+~~~tsx
+import App from './AppMUI.tsx';
+~~~
+Restart the development server. The app should render just as before in the browser. However, we are still using the original Course and Module components. Create the file `src/components/programmeMUI.tsx` and paste in this code:
+~~~tsx
+import React from "react";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Typography from "@mui/material/Typography";
+import type { ProgrammeProps } from "../types";
+
+const styles = {
+  root: {
+    display: "flex",
+    justifyContent: "space-around",
+    padding: 2,
+  },
+};
+const Programme: React.FC<ProgrammeProps> = ({ title, modules }) => {
+
+  return (
+    <>
+      <Typography sx={styles.root} variant="h4" component="h1">
+        {`${title} modules table`}
+      </Typography>
+      <TableContainer component="div">
+        <Table aria-label="modules table">
+          <TableHead>
+            <TableRow>
+              <TableCell>Name</TableCell>
+              <TableCell>No. of Lectures</TableCell>
+              <TableCell>No. of Practicals</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {modules.map((m, index) => (
+              <TableRow key={index}>
+                <TableCell component="th" scope="row">
+                  {m.name}
+                </TableCell>
+                <TableCell>{m.noLectures}</TableCell>
+                <TableCell>{m.noPracticals}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </>
+  );
+}
+
+export {Programme};
+~~~
+Points to note in the above code:
+
++ We use the Typography component to include text in the UI. It helps achieve a consistent theme in the font family, spacing, padding, etc. The variant prop applies the typography styles to the text (see [here](https://material-ui.com/components/typography/#component)). The component prop declares the DOM element to use for the text block.
++ Some custom styling is added to the Typography for illustration purposes. It simply centres the heading. 
++ The best example of Material Ui's component model so far is implementing the table above. 
++ For convenience, we are not defining a new Module component. The modules' details are generated inside the table code using the map method.
+
+
+In `src/AppMUI.tsx`, replace the line:
+~~~tsx
+import {Programme} from './components/programme';
+~~~
+with:
+~~~tsx
+import {Programme} from './components/programmeMUI';
+~~~
+
+The app should now be rendering similar to before.
+
+Commit this work:
+~~~
+$ git add -A
+$ git commit -m "Demo Material UI."
+~~~
+### Archive : Resources
+
+ 
+## Topic :   React: The Component model.
+
+  
+Examine the core aspects of the component model, including state, hooks, and unidirectional data flow. 
+### Side : Learning Resources
+
+ 
+#### Web : LLM Notebook
+
+ 
+A pretrained LLM on this topic
+#### Podcast : React Component Model
+
+ 
+Notebook LM generated summary podcast
+### Talk :  React Component model 1
+
+  
+A look at React's data flow patterns and lifecycle hooks.
+### Talk :  React Component model 2
+
+  
+Data down, action up and side effects in React components.
+### Lab : Lab-Movie_App-Part1
+
+ 
+In this lab, we commence the development of a Single Page App(SPA) for Movie enthusiasts. The product will go through several iterations over the coming weeks, adding new functionality and refactoring existing code during that period. The app's data source will be the open web API [The Movie Database](https://developers.themoviedb.org/3/getting-started/introduction ).  Your API includes an [OpenAPI specification](https://developer.themoviedb.org/openapi) that will serve as the single source of truth for all data types used in the application.
+
+This approach makes sense because the application is largely driven by the API, with most of its functionality relying on it. By using the OpenAPI definition as the authoritative source, you ensure:
+
+- Consistency between frontend and backend
+- Strong typing across the application
+- Easier code generation (e.g., clients, models, validation)
+- Reduced duplication and fewer integration errors
+
+## App overview.
+
+The features of the React app will include:
+
+- Display a list of current movie releases. For each one, show its poster image, title, release date and viewer rating.
+- Display more detailed information on a movie from the above list by clicking its 'More Info ..' button. The details include plot, genres, runtime, revenue, etc.
+- Show extracts from written reviews for a movie.
+- Show the full review text for a review.
+- Add movies to your favourites list.
+- Write a review for one of your favourites.
+
+The views for the app will look as follows:
+
+> > Discover page - List the first 20 movies returned by the TMDB API:
+
+![][home]
+
+> > The list of movies can be filtered by genre, title, or both:
+
+![][filtering]
+
+> > The Movie Details page will look as follows:
+
+![][details]
+
+> > The Details page can optionally show extracts from all reviews written for the movie:
+
+![][extracts]
+
+> > The above review extracts are clickable to give the full review text (The Review page):
+
+![][review]
+
+> > The Favorites page - Lists the user's favourite movies, as selected from the Home page list:
+
+![][favorites]
+
+> > The User can write a review for any of their favourite movies:
+
+![][form]
+
+The TMDB (The Movie Database) API has a rich data model. At its core is the Movie entity. A sample instance of this entity is listed below - study its structure.
+
+```
+{
+  "adult": false,
+  "backdrop_path": "/5Iw7zQTHVRBOYpA0V6z0yypOPZh.jpg",
+  "belongs_to_collection": {
+    "id": 10,
+    "name": "Star Wars Collection",
+    "poster_path": "/iTQHKziZy9pAAY4hHEDCGPaOvFC.jpg",
+    "backdrop_path": "/d8duYyyC9J5T825Hg7grmaabfxQ.jpg"
+  },
+  "budget": 200000000,
+  "genres": [
+    {
+      "id": 14,
+      "name": "Fantasy"
+    },
+    {
+      "id": 12,
+      "name": "Adventure"
+    },
+    {
+      "id": 878,
+      "name": "Science Fiction"
+    },
+    {
+      "id": 28,
+      "name": "Action"
+    }
+  ],
+  "homepage": "https://www.starwars.com/films/star-wars-episode-viii-the-last-jedi",
+  "id": 181808,
+  "imdb_id": "tt2527336",
+  "original_language": "en",
+  "original_title": "Star Wars: The Last Jedi",
+  "overview": "Rey develops her newly discovered abilities with the guidance of Luke Skywalker, who is unsettled by the strength of her powers. Meanwhile, the Resistance prepares to do battle with the First Order.",
+  "popularity": 44.208,
+  "poster_path": "/kOVEVeg59E0wsnXmF9nrh6OmWII.jpg",
+  "production_companies": [
+    {
+      "id": 1,
+      "logo_path": "/o86DbpburjxrqAzEDhXZcyE8pDb.png",
+      "name": "Lucasfilm",
+      "origin_country": "US"
+    },
+    {
+      "id": 11092,
+      "logo_path": null,
+      "name": "Ram Bergman Productions",
+      "origin_country": "US"
+    },
+    {
+      "id": 2,
+      "logo_path": "/wdrCwmRnLFJhEoH8GSfymY85KHT.png",
+      "name": "Walt Disney Pictures",
+      "origin_country": "US"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "US",
+      "name": "United States of America"
+    }
+  ],
+  "release_date": "2017-12-13",
+  "revenue": 1332459537,
+  "runtime": 152,
+  "spoken_languages": [
+    {
+      "iso_639_1": "en",
+      "name": "English"
+    }
+  ],
+  "status": "Released",
+  "tagline": "Darkness rises... and light to meet it",
+  "title": "Star Wars: The Last Jedi",
+  "video": false,
+  "vote_average": 7,
+  "vote_count": 9692
+}
+```
+
+Let's start building the app.
+
+[tmdb]: https://developers.themoviedb.org/3/getting-started/introduction
+[home]: ./img/home.png
+[filtering]: ./img/filtering.png
+[details]: ./img/details.png
+[extracts]: ./img/extracts.png
+[review]: ./img/review.png
+[favorites]: ./img/favorites.png
+[form]: ./img/form.png
+#### Step :  Developing a Movies Fan App.
+
+ 
+In this lab, we commence the development of a Single Page App(SPA) for Movie enthusiasts. The product will go through several iterations over the coming weeks, adding new functionality and refactoring existing code during that period. The app's data source will be the open web API [The Movie Database](https://developers.themoviedb.org/3/getting-started/introduction ).  Your API includes an [OpenAPI specification](https://developer.themoviedb.org/openapi) that will serve as the single source of truth for all data types used in the application.
+
+This approach makes sense because the application is largely driven by the API, with most of its functionality relying on it. By using the OpenAPI definition as the authoritative source, you ensure:
+
+- Consistency between frontend and backend
+- Strong typing across the application
+- Easier code generation (e.g., clients, models, validation)
+- Reduced duplication and fewer integration errors
+
+## App overview.
+
+The features of the React app will include:
+
+- Display a list of current movie releases. For each one, show its poster image, title, release date and viewer rating.
+- Display more detailed information on a movie from the above list by clicking its 'More Info ..' button. The details include plot, genres, runtime, revenue, etc.
+- Show extracts from written reviews for a movie.
+- Show the full review text for a review.
+- Add movies to your favourites list.
+- Write a review for one of your favourites.
+
+The views for the app will look as follows:
+
+> > Discover page - List the first 20 movies returned by the TMDB API:
+
+![][home]
+
+> > The list of movies can be filtered by genre, title, or both:
+
+![][filtering]
+
+> > The Movie Details page will look as follows:
+
+![][details]
+
+> > The Details page can optionally show extracts from all reviews written for the movie:
+
+![][extracts]
+
+> > The above review extracts are clickable to give the full review text (The Review page):
+
+![][review]
+
+> > The Favorites page - Lists the user's favourite movies, as selected from the Home page list:
+
+![][favorites]
+
+> > The User can write a review for any of their favourite movies:
+
+![][form]
+
+The TMDB (The Movie Database) API has a rich data model. At its core is the Movie entity. A sample instance of this entity is listed below - study its structure.
+
+```
+{
+  "adult": false,
+  "backdrop_path": "/5Iw7zQTHVRBOYpA0V6z0yypOPZh.jpg",
+  "belongs_to_collection": {
+    "id": 10,
+    "name": "Star Wars Collection",
+    "poster_path": "/iTQHKziZy9pAAY4hHEDCGPaOvFC.jpg",
+    "backdrop_path": "/d8duYyyC9J5T825Hg7grmaabfxQ.jpg"
+  },
+  "budget": 200000000,
+  "genres": [
+    {
+      "id": 14,
+      "name": "Fantasy"
+    },
+    {
+      "id": 12,
+      "name": "Adventure"
+    },
+    {
+      "id": 878,
+      "name": "Science Fiction"
+    },
+    {
+      "id": 28,
+      "name": "Action"
+    }
+  ],
+  "homepage": "https://www.starwars.com/films/star-wars-episode-viii-the-last-jedi",
+  "id": 181808,
+  "imdb_id": "tt2527336",
+  "original_language": "en",
+  "original_title": "Star Wars: The Last Jedi",
+  "overview": "Rey develops her newly discovered abilities with the guidance of Luke Skywalker, who is unsettled by the strength of her powers. Meanwhile, the Resistance prepares to do battle with the First Order.",
+  "popularity": 44.208,
+  "poster_path": "/kOVEVeg59E0wsnXmF9nrh6OmWII.jpg",
+  "production_companies": [
+    {
+      "id": 1,
+      "logo_path": "/o86DbpburjxrqAzEDhXZcyE8pDb.png",
+      "name": "Lucasfilm",
+      "origin_country": "US"
+    },
+    {
+      "id": 11092,
+      "logo_path": null,
+      "name": "Ram Bergman Productions",
+      "origin_country": "US"
+    },
+    {
+      "id": 2,
+      "logo_path": "/wdrCwmRnLFJhEoH8GSfymY85KHT.png",
+      "name": "Walt Disney Pictures",
+      "origin_country": "US"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "US",
+      "name": "United States of America"
+    }
+  ],
+  "release_date": "2017-12-13",
+  "revenue": 1332459537,
+  "runtime": 152,
+  "spoken_languages": [
+    {
+      "iso_639_1": "en",
+      "name": "English"
+    }
+  ],
+  "status": "Released",
+  "tagline": "Darkness rises... and light to meet it",
+  "title": "Star Wars: The Last Jedi",
+  "video": false,
+  "vote_average": 7,
+  "vote_count": 9692
+}
+```
+
+Let's start building the app.
+
+[tmdb]: https://developers.themoviedb.org/3/getting-started/introduction
+[home]: ./img/home.png
+[filtering]: ./img/filtering.png
+[details]: ./img/details.png
+[extracts]: ./img/extracts.png
+[review]: ./img/review.png
+[favorites]: ./img/favorites.png
+[form]: ./img/form.png
+#### Step :  Start-up.
+
+ 
+Download [this archive][start], unzip it and import it into VS Code. Open an integrate terminal and run:
+
+```
+$ npm install
+```
+
+The archive contained a skeleton Vite project for a React app. The `src` folder has been divided into several subfolders to reflect the different code elements of a React app based on best practices.
+
+Our Movies Fan app will communicate with The TMDB API (Note: We will use version 3 of the API). An API Key authenticates all requests to the API. Please follow these steps to acquire a personal key for development:
+
+- Signup for an account [here][signup].
+- Log in to your account. To get a key, follow this sequence:
+
+>>Settings > API > Create > Click on Request an API > Click "Developer" > Fill in form details (use localhost:3000 for the URL and an arbitrary description)
+
+<img src="./img/image-20240527111906739.png" alt="image-20240527111906739" style="zoom:67%;" />
+
+In VS Code, in the project base folder, create a new file called `.env` with the following content:
+
+```
+VITE_TMDB_KEY=.... your API key value ...
+```
+
+Later we will use this environment variable in HTTP calls to the API.
+
+It is imperative to keep your API key private. For example, never include it in a project pushed up to GitHub. Notice, in `.gitignore`, it is listed in `.env` to safeguard against this.
+
+---
+
+## GitHub repository.
+Create a repo in your GitHub account called 'labMoviesApp' and add it as a remote repo for the movies app project on your local computer. Type the following commands in the VS Code integrated terminal:
+~~~
+git init
+git add --all
+git commit -m "initial commit"
+git branch -M main
+git remote add origin https://github.com/..your username.../labMoviesApp.git
+git push -u origin main
+~~~
+
+**Note that labs will be part of the module's assessment. Please follow the commit instructions at the end of each step .**
+
+## The Development process.
+
+_Thinking in React_ is a development process recommended by the React design team (discussed in the lectures). This lab is focused on the first step of this process, titled `Build a static version` of the app. In subsequent labs, we will add user interaction and routing.
+
+---------------------------------------
+
+
+
+
+[start]: ./archives/startercode-ts.zip
+[signup]: https://www.themoviedb.org/account/signup
+[tmdb]: https://developers.themoviedb.org/3/getting-started/introduction
+[apikey]: ./img/apikey.png
+[moodle]: https://moodle.wit.ie/course/view.php?id=185752&section=5
+
+#### Step :  Developing the Home Page components.
+
+ 
+The image below shows a possible component breakdown of the app's Home page:
+
+![][homecomponents]
+
+[ NOTE: We will ignore the navigation bar at the top for now.]
+
+The components suggested from this breakdown are:
+
+1. Movie Card.
+1. Movie List.
+1. Movie List Header.
+1. Filtering movies card.
+
+[The Filtering movies card component will display as a side sheet when the user clicks the Filtering button. This dynamic behaviour is covered in a later lab.
+
+![][filtersheet]
+
+
+
+### TMDB API: OpenAPI Description
+
+As stated previously, we will use the TMDB API OpenAPI description as the single source of truth for the data model. 
+
+Go to the [tmdb-api.json](https://developer.themoviedb.org/openapi/tmdb-api.json ) and save into /src/api as `tmdb-api.json`.
+
+Your file structure should now look like this:
+![image-20260318100003506](./img/image-20260318100003506.png)
+
+Open a command line in the api folder and generate the ts types for the movie app using:
+
+~~~bash
+npx openapi-typescript ./tmdb-api.json -o ../types/generated/tmdb.ts 
+~~~
+
+You should see output similar to the following
+![image-20260318100629614](./img/image-20260318100629614.png)
+
+This will generate interfaces and types that describe the shape of every endpoint and type used in the API. It is a very extensive and rich API so, although we generate everything once, we can just pick the types we are using in our app. 
+
+There are  **three main sections** in the tmdb.ts file :
+
+```
+export interface paths { ... }
+export interface components { ... }
+export interface operations { ... } // sometimes
+```
+
+The type descriptions we need are buries inside the paths we will use in the API. We can create your own types "layer" that extract the descriptions from the path responses.
+
+In `/src/types`, create a new file called `movieAppTypes.ts`:
+
+~~~typescript
+// src/types/tmdb.ts
+
+import { paths } from "./generated/tmdb";
+
+// Type for the API response when discovering movies
+export type DiscoverMoviesProps = paths["/3/discover/movie"]["get"]["responses"][200]["content"]["application/json"];
+
+// Type for a single movie object from the discover movies response
+export type DiscoverMovieOverviewProps =  NonNullable<DiscoverMoviesProps["results"]>[number];
+
+// Props interface for components that display a list of movies
+export type BaseMovieListProps  ={
+  movies: NonNullable<DiscoverMoviesProps["results"]>;
+}
+
+// Type for the API response when fetching detailed movie information
+export type MovieDetailsProps = paths["/3/movie/{movie_id}"]["get"]["responses"][200]["content"]["application/json"];
+
+~~~
+
+`NonNullable` is there to remove any `null` or `undefined` from the generated API type before you use it. Some  OpenAPI fields are likely optional, So this will  strip out null and undefined and treat it as a definite array. This is the what you’ll use in your app to describe the shape of interfaces/types. We will add to this as we go along...
+
+
+
+React Components:
+
+### The MovieCard component.
+
+In VS Code, create the filer `src/components/MovieCard.tsx` :
+
+~~~tsx
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import CardHeader from "@mui/material/CardHeader";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import CalendarIcon from "@mui/icons-material/CalendarTodayTwoTone";
+import StarRateIcon from "@mui/icons-material/StarRate";
+import Grid from "@mui/material/Grid";
+import IconButton from "@mui/material/IconButton";
+import img from '../images/film-poster-placeholder.png';
+import { DiscoverMovieOverviewProps } from "../types/movieAppTypes";
+
+const styles = {
+  card: { maxWidth: 345 },
+  media: { height: 500 },
+  avatar: {
+    backgroundColor: "rgb(255, 0, 0)",
+  },
+};
+
+const MovieCard = (movie: DiscoverMovieOverviewProps) => {
+ 
+
+  return (
+    <Card sx={styles.card}>
+      <CardHeader title={movie.title ?? "Untitled"} />
+      <CardMedia
+        sx={styles.media}
+        image={
+          movie.poster_path
+            ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
+            : img
+        }
+      />
+      <CardContent>
+        <Grid container>
+          <Grid item xs={6}>
+            <Typography variant="h6" component="p">
+              <CalendarIcon fontSize="small" />
+              {movie.release_date}
+            </Typography>
+          </Grid>
+          <Grid item xs={6}>
+            <Typography variant="h6" component="p">
+              <StarRateIcon fontSize="small" />
+              {"  "} {movie.vote_average}{" "}
+            </Typography>
+          </Grid>
+        </Grid>
+      </CardContent>
+      <CardActions disableSpacing>
+        <IconButton aria-label="add to favorites" >
+          <FavoriteIcon color="primary" fontSize="large" />
+        </IconButton>
+        <Button variant="outlined" size="medium" color="primary">
+          More Info ...
+        </Button>
+      </CardActions>
+    </Card>
+  );
+}
+
+export default MovieCard;
+~~~
+Note, the `More Info ...' button and the Favourite icon are inactive - we are only developing a static web app at this stage.
+
+Some comments on the code above:
+
++ A Material UI Card component is used to contain the information - see [here](https://material-ui.com/components/cards/).
++ For some movies, TMDB does not have a related poster. We display a placeholder in those cases. 
++ In the card's content section, we use the Material's Grid component to structure the information - see [here](https://material-ui.com/components/grid/). We want the content to be horizontally aligned. 
++ The Typography component controls how text is displayed and represented in the DOM - see [here](https://material-ui.com/components/typography/). In this example, the text will show as an h6 header, and its DOM representation will be a paragraph (p).
++ The MovieCard component expects a BaseMovie type as a prop - we saw an example of a Movie's data structure in an earlier section of this lab.
+
+
+
+### The Filtering Card component.
+
+In VS Code, create the file `src/components/FilterMoviesCard.tsx` with the following:
+~~~tsx
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import TextField from "@mui/material/TextField";
+import FilterAltIcon from '@mui/icons-material/FilterAlt';
+import SortIcon from '@mui/icons-material/Sort';
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+
+const styles = {
+  root: {
+    maxWidth: 345,
+  },
+  media: { height: 300 },
+ 
+  formControl: {
+    margin: 1,
+    minWidth: 220,
+    backgroundColor: "rgb(255, 255, 255)",
+  },
+};
+
+
+  const FilterMoviesCard = () => {
+
+  const genres = [
+    {id: 1, name: "Animation"},
+    {id: 2, name: "Comedy"},
+    {id: 3, name: "Thriller"}
+  ]
+
+  return (
+    <>
+    <Card sx={styles.root} variant="outlined">
+      <CardContent>
+        <Typography variant="h5" component="h1">
+          <FilterAltIcon fontSize="large" />
+          Filter the movies.
+        </Typography>
+        <TextField
+          sx={styles.formControl}
+          id="filled-search"
+          label="Search field"
+          type="search"
+          variant="filled"
+        />
+        <FormControl sx={styles.formControl}>
+          <InputLabel id="genre-label">Genre</InputLabel>
+          <Select
+            labelId="genre-label"
+            id="genre-select"
+          >
+            {genres.map((genre) => {
+              return (
+                <MenuItem key={genre.id} value={genre.id}>
+                  {genre.name}
+                </MenuItem>
+              );
+            })}
+          </Select>
+        </FormControl>
+      </CardContent>
+    </Card>
+    <Card sx={styles.root} variant="outlined">
+        <CardContent>
+          <Typography variant="h5" component="h1">
+            <SortIcon fontSize="large" />
+            Sort the movies.
+          </Typography>
+        </CardContent>
+      </Card>
+      </>
+  );
+}
+
+export default FilterMoviesCard;
+~~~
+The genre list is hard-coded for now, but we will dynamically construct it in a future lab. Notice how the genre dropdown list is generated at runtime using array mapping.
+
+### The Header component.
+
+In VS Code, create the file `src/components/HeaderMovieList.tsx` :
+~~~tsx
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import Paper from "@mui/material/Paper";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+
+const styles = {
+    root: {
+        display: "flex",
+        justifyContent: "space-around",
+        alignItems: "center",
+        flexWrap: "wrap",
+        marginBottom: 1.5,
+    },
+};
+
+interface HeaderProps {
+    title: string;
+}
+
+const Header = (headerProps: HeaderProps) => {
+    const title = headerProps.title
+
+    return (
+        <Paper component="div" sx={styles.root}>
+            <IconButton
+                aria-label="go back"
+            >
+                <ArrowBackIcon color="primary" fontSize="large" />
+            </IconButton>
+
+            <Typography variant="h4" component="h3">
+                {title}
+            </Typography>
+            <IconButton
+                aria-label="go forward"
+            >
+                <ArrowForwardIcon color="primary" fontSize="large" />
+            </IconButton>
+        </Paper>
+    );
+};
+
+export default Header;
+~~~
+The backward/forward arrows do not work yet. The Material Paper component is a generic wrapper component (see [here](https://material-ui.com/components/paper/)).
+
+Before continuing, from the integrated terminal panel, update the git repository as follows:
+~~~
+$ git add -A
+$ git commit -m "Home page components."
+$ git push origin main
+~~~
+
+[homecomponents]: ./img/homecomponents.png
+[filtersheet]: ./img/filtersheet.png
+[cardstory]: ./img/cardstory.png
+[filterstory]: ./img/filterstory.png
+
+#### Step :  Assembling the Home page.
+
+ 
+We can now bring the components together to form a page in the app. 
+
+Create the file `src/pages/HomePage.tsx` and paste in this code:
+
+~~~tsx
+import Header from "../components/HeaderMovieList";
+import Grid from "@mui/material/Grid";
+import MovieList from "../components/MovieList";
+import { BaseMovieListProps } from "../types/movieAppTypes";
+ 
+const styles = {
+  root: {
+    padding: "20px",
+  },
+};
+
+const MovieListPage = ({ movies }: BaseMovieListProps) => {
+  return (
+    <Grid container sx={styles.root}>
+      <Grid item xs={12}>
+        <Header title={"Home Page"} />
+      </Grid>
+      <Grid item container spacing={5}>
+        <MovieList movies={movies}></MovieList>
+      </Grid>
+    </Grid>
+  );
+};
+export default MovieListPage;
+~~~
+Also, create the file `src/components/MovieList.tsx` (referenced by the above code) and add this code:
+~~~tsx
+import Movie from "./MovieCard";
+import Grid from "@mui/material/Grid";
+import { BaseMovieListProps } from "../types/movieAppTypes";
+
+const MovieList  = ({ movies }: BaseMovieListProps) => {
+  const movieCards = movies.map((m) => (
+    <Grid key={m.id} item xs={12} sm={6} md={4} lg={3} xl={2}>
+      <Movie key={m.id} {...m} />
+    </Grid>
+  ));
+  return movieCards;
+}
+
+  export default MovieList;
+~~~
+We use the Material's Grid system above to enable a responsive UI. For example, when the browser's viewport is extra-large (xl), we allow six cards per row, whereas a small viewport (sm) allows only two cards per row - see later.
+
+We will eventually plug this page into a routing component. In the meantime, we will statically link it to a top-level component that feeds it an array of movies. 
+
+We will use sample data from a file `src/data/sampleData.ts`. Create the file and add the following:
+
+```tsx
+export const sampleMovieDetails = {
+    adult: false,
+    backdrop_path: "/5Iw7zQTHVRBOYpA0V6z0yypOPZh.jpg",
+    belongs_to_collection: {
+      id: 10,
+      name: "Star Wars Collection",
+      poster_path: "/iTQHKziZy9pAAY4hHEDCGPaOvFC.jpg",
+      backdrop_path: "/d8duYyyC9J5T825Hg7grmaabfxQ.jpg",
+    },
+    budget: 200000000,
+    genres: [
+      {
+        id: 14,
+        name: "Fantasy",
+      },
+      {
+        id: 12,
+        name: "Adventure",
+      },
+      {
+        id: 878,
+        name: "Science Fiction",
+      },
+      {
+        id: 28,
+        name: "Action",
+      },
+    ],
+    homepage:
+      "https://www.starwars.com/films/star-wars-episode-viii-the-last-jedi",
+    id: 181808,
+    imdb_id: "tt2527336",
+    original_language: "en",
+    original_title: "Star Wars: The Last Jedi",
+    overview:
+      "Rey develops her newly discovered abilities with the guidance of Luke Skywalker, who is unsettled by the strength of her powers. Meanwhile, the Resistance prepares to do battle with the First Order.",
+    popularity: 44.208,
+    poster_path: "/kOVEVeg59E0wsnXmF9nrh6OmWII.jpg",
+    production_companies: [
+      {
+        id: 1,
+        logo_path: "/o86DbpburjxrqAzEDhXZcyE8pDb.png",
+        name: "Lucasfilm",
+        origin_country: "US",
+      },
+      {
+        id: 11092,
+        logo_path: "/o86DbpburjxrqAzEDhXZcyE8pDb.png",
+        name: "Ram Bergman Productions",
+        origin_country: "US",
+      },
+      {
+        id: 2,
+        logo_path: "/wdrCwmRnLFJhEoH8GSfymY85KHT.png",
+        name: "Walt Disney Pictures",
+        origin_country: "US",
+      },
+    ],
+    production_countries: [
+      {
+        iso_3166_1: "US",
+        name: "United States of America",
+      },
+    ],
+    release_date: "2017-12-13",
+    revenue: 1332459537,
+    runtime: 152,
+     status: "Released",
+    tagline: "Darkness rises... and light to meet it",
+    title: "Star Wars: The Last Jedi",
+    video: false,
+    vote_average: 7,
+    vote_count: 9692,   spoken_languages: [
+      {
+        iso_639_1: "en",
+        name: "English",
+      },
+    ],
+
+  };
+```
+
+
+
++ Create `src/index.tsx` and add this code:
+
+~~~tsx
+import { createRoot } from "react-dom/client";
+import HomePage from "./pages/HomePage";
+import {sampleMovieDetails}  from './data/sampleData'
+
+const movies = [sampleMovieDetails, sampleMovieDetails, sampleMovieDetails, sampleMovieDetails, sampleMovieDetails, sampleMovieDetails, sampleMovieDetails];
+
+const App = () => {
+  return (
+      <HomePage movies={movies} />
+  );
+};
+
+const rootElement = createRoot(document.getElementById("root")!); 
+rootElement.render(<App />);
+~~~
+The App component is at the top of the component hierarchy - this will change in a future lab. To see the HomePage rendering start the development server provided by the Vite tool:
+~~~
+npm run dev
+~~~
+Click the localhost URL provided in the command response - the page should render as follows:
+
+![][homepage]
+
+A small/mobile browser viewport renders the page as:
+
+![][homepagesm]
+
+Before continuing, from the integrated terminal panel, update the git repository as follows:
+~~~ 
+$ git add -A
+$ git commit -m "Home Page rendering."
+$ git push origin main
+~~~
+
+[homepage]: ./img/homepage.png
+[homepagesm]: ./img/homepagesm.png
+
+#### Step :  The Movie Details Page components.
+
+ 
+The Movie Details page has a simple component breakdown (at least for now):
+
+![][moviecomponents]
+
+[We're assuming the sliding images section on the left is not generally reusable and therefore not a candidate for a component.]
+
+Just two components:
+
++ Movie Details.
++ Movie Header.
+
+
+### The MovieDetails component.
+
+In VS Code, create the file `src/components/MovieDetails.tsx` and add the following:
+
+~~~tsx
+import Chip from "@mui/material/Chip";
+import Paper from "@mui/material/Paper";
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import MonetizationIcon from "@mui/icons-material/MonetizationOn";
+import StarRate from "@mui/icons-material/StarRate";
+import Typography from "@mui/material/Typography";
+import { MovieDetailsProps } from "../types/movieAppTypes";
+
+const styles = {
+    chipSet: {
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexWrap: "wrap",
+        listStyle: "none",
+        padding: 1.5,
+        margin: 0,
+    },
+    chipLabel: {
+        margin: 0.5,
+    },
+};
+
+const MovieDetails= (movie: MovieDetailsProps) => {
+
+    return (
+        <>
+            <Typography variant="h5" component="h3">
+                Overview
+            </Typography>
+
+            <Typography variant="h6" component="p">
+                {movie.overview}
+            </Typography>
+
+            <Paper component="ul" sx={styles.chipSet}>
+                <li>
+                    <Chip label="Genres" sx={styles.chipLabel} color="primary" />
+                </li>
+                {(movie.genres ?? []).map((g) => (
+                    <li key={`${g.id}-${g.name}`}>
+                        <Chip label={g.name ?? "Unknown"} />
+                    </li>
+                ))}
+            </Paper>
+            <Paper component="ul" sx={styles.chipSet}>
+                <Chip icon={<AccessTimeIcon />} label={`${movie.runtime} min.`} />
+                <Chip
+                    icon={<MonetizationIcon />}
+                    label={`${movie.revenue.toLocaleString()}`}
+                />
+                <Chip
+                    icon={<StarRate />}
+                    label={`${movie.vote_average} (${movie.vote_count}`}
+                />
+                <Chip label={`Released: ${movie.release_date}`} />
+            </Paper>
+        </>
+    );
+};
+export default MovieDetails;
+~~~
+This component uses Material's Clip (see [here](https://material-ui.com/components/chips/)) and Floating Action Button (see [here](https://material-ui.com/components/floating-action-button/)) components. We will add a click handler to the button later. The styling code demonstrates:
+
++ A default Material Theme is inherited by all our components. It declares app-wide properties and guarantees consistent styling. We can access the theme using: `makeStyles((theme) => ({ ...})`. It allows us to customize the theme.
+
+A component can have a mixture of static and dynamically generated JSX. In the excerpt below, we are constructing a movie's list of genres at runtime:
+~~~tsx
+ {(movie.genres ?? []).map((g) => (
+                    <li key={`${g.id}-${g.name}`}>
+                        <Chip label={g.name ?? "Unknown"} />
+                    </li>
+                ))}
+~~~
+Using the map method in this way is a common pattern in React development. The ?? is there to check that genre is present as a property. 
+
+### The MovieHeader component.
+
+Create the file `src/components/HeaderMovie.tsx` and add the following code:
+~~~tsx
+import React from "react";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import Paper from "@mui/material/Paper";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import HomeIcon from "@mui/icons-material/Home";
+import { MovieDetailsProps } from "../types/movieAppTypes"; 
+
+const styles = {
+    root: {  
+    display: "flex",
+    justifyContent: "space-around",
+    alignItems: "center",
+    flexWrap: "wrap",
+    padding: 1.5,
+  },
+};
+
+const MovieHeader= (movie: MovieDetailsProps) => {
+  
+  return (
+    <Paper component="div" sx={styles.root}>
+      <IconButton aria-label="go back">
+        <ArrowBackIcon color="primary" fontSize="large" />
+      </IconButton>
+
+      <Typography variant="h4" component="h3">
+        {movie.title}{"   "}
+        <a href={movie.homepage}>
+          <HomeIcon color="primary"  fontSize="large"/>
+        </a>
+        <br />
+        <span>{`${movie.tagline}`} </span>
+      </Typography>
+      <IconButton aria-label="go forward">
+        <ArrowForwardIcon color="primary" fontSize="large" />
+      </IconButton>
+    </Paper>
+  );
+};
+
+export default MovieHeader;
+~~~
+
+
+Update the local git repository, as follows:
+~~~
+$ git add -A
+$ git commit -m "Movie Details  page components."
+$ git push origin main
+~~~
+
+[moviecomponents]: ./img/moviecomponents.png
+[detailsstory]: ./img/detailstory.png
+#### Step :  Assembling the Movie Details page.
+
+ 
+To bring the components from the previous section together, we will create a Movie Details page. This page will display a movie's details and associated poster/media images. To support this,  the page will accept two props: a movie object and an array of poster images for that movie. We already have an interface defined for movies, but not for images. 
+In /`src/types/movieAppTypes.ts`, enter the following MovieImage interface and MoviePageProps interfaces: 
+
+~~~typescript
+export type MovieImage = {
+  file_path: string;
+  aspect_ratio?: number; //some props are optional...
+  height?: number;
+  iso_639_1?: string;
+  vote_average?: number;
+  vote_count?: number;
+  width?: number;
+}
+
+export type MoviePageProps = {
+  movie: MovieDetailsProps;
+  images: MovieImage[];
+}
+~~~
+
+Create a new file, `/src/pages/MovieDetailsPage.tsx` with the following content:
+
+~~~tsx
+import React from "react";
+import MovieHeader from "../components/HeaderMovie";
+import MovieDetails from "../components/MovieDetails";
+import Grid from "@mui/material/Grid";
+import ImageList from "@mui/material/ImageList";
+import ImageListItem from "@mui/material/ImageListItem";
+import { MoviePageProps} from "../types/movieAppTypes";
+
+const styles = {
+  imageListRoot: {
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "space-around",
+  },
+  gridListTile: { 
+    width: "100%",
+    height: "auto",
+  },
+
+};
+
+const MoviePage =  ({movie, images}: MoviePageProps) => {
+
+  return (
+    <>
+      {movie ? (
+        <>
+          <MovieHeader {...movie} />
+          <Grid container spacing={5} style={{ padding: "15px" }}>
+            <Grid item xs={3}>
+              <div >
+                <ImageList sx={styles.imageListRoot} cols={1}>
+                  {images.map((image) => (
+                    <ImageListItem
+                      key={image.file_path}
+                      sx={styles.gridListTile}
+                      cols={1}
+                    >
+                     <img
+                        src={`https://image.tmdb.org/t/p/w500/${image.file_path}`}
+                        alt={'Image alternative'}
+                      />                    
+                    </ImageListItem>
+                  ))}
+                </ImageList>
+              </div>
+            </Grid>
+            <Grid item xs={9}>
+              <MovieDetails {...movie} />
+            </Grid>
+          </Grid>
+        </>
+      ) : (
+        <h2>Waiting for API data</h2>
+      )}
+    </>
+  );
+};
+
+export default MoviePage;
+~~~
+
+
+Later in this lab series, we will request the movie data directly from the TMDB API. This communication will be asynchronous, and consequently, the page will render __before__ the API's response is received. Therefore the movie object reference will be 'undefined' and the app will crash. To avoid this error we use the ternary operator (?:) to check the movie object's status. When it is undefined (boolean false), a placeholder text - 'Waiting for API data' - is displayed. 
+
+The code above uses the Material ImageList component for displaying a set of images (see [here](https://material-ui.com/components/grid-list/)).
+
+As a temporary solution, we will statically connect this page to the App component. In `src/index.tsx`, replace the line:
+~~~tsx
+import HomePage from "./pages/homePage";
+~~~
+with this:
+~~~tsx
+import MovieDetailsPage from './pages/MovieDetailsPage'
+import {MovieImage} from './types/movieAppTypes'
+~~~
+In the same file, add an array of image filenames:
+~~~tsx
+const images: MovieImage[] = [
+  { file_path: "/kOVEVeg59E0wsnXmF9nrh6OmWII.jpg"},
+  { file_path: "/v1QQKq8M0fWxMgSdGOX1aCv8qMB.jpg"},
+  { file_path: "/2iGN0aKHJYD0xQydlfuCUAcgNbO.jpg"},
+  { file_path: "/rjBwhsOzHKUw2NIOrE7aMqjfe6s.jpg"},
+];
+~~~
+And change the App component as follows:
+~~~tsx
+const App = () => {
+  return (
+    <MovieDetailsPage movie={sampleMovieDetails} images={images} />
+  );
+};
+~~~
+Start the development server:
+~~~
+$ npm run dev
+~~~
+The browser should render the Movie Details page:
+
+![][moviepage]
+
+Update the project's git repository as follows:
+~~~ 
+$ git add -A
+$ git commit -m "Movie Details Page rendering."
+$ git push origin main
+~~~
+
+[moviepage]: ./img/moviepage.png
+
+#### Step :  Exercise.
+
+ 
+A movie's attributes include a list of countries used in the production (the production_countries array). 
+
+You are required to modify the relevant interface and component code so that the details page render this information, as illustrated below.
+
+(hint: examine how *Genres* are handled in the component for guidance.) 
+
+![][exercise]
+
+On completion, update the project's git repository, as follows:
+~~~ 
+$ git add -A
+$ git commit -m "Movie Details Page - included production countries."
+$ git push origin main
+~~~
+
+[exercise]: ./img/exercise.png
+
+
+### Archive : Resources.
+
+ 
+The Filter Friends Apps used to demonstrate data flow patterns.
+
+## Topic :   Navigation and App Design.
+
+  
+See how to add navigation to a React app. Design for composition, not inheritance. Thinking in React 
+### Side : Learning Resources
+
+ 
+#### Web : LLM Notebook
+
+ 
+A pretrained LLM on this topic
+#### Podcast : React Navigation and Patterns
+
+ 
+Notebook LM generated summary podcast
+### Talk :  TS Top Up.
+
+  
+The destructuring and spread operator syntax.
+### Talk :  React: Navigation.
+
+  
+Navigation adds the 'app nature' to a React SPA. The react-router library provides this support. 
+### Talk :  Design Patterns in React.
+
+  
+React favours composition over inheritance. We look at some helpful composition patterns.
+### Lab : Lab-Movie_App-Part2
+
+ 
+In this lab, we will enhance the static Movies Fan app from the previous lab session. 
+
+The features we will add are:
+
+1. Live data retrieved from the TMDB API.
+1. Navigation.
+1. Filtering of the movie list displayed on the home page.
+1. Tagging your favourite movies.
+
+From a technical perspective, this will involve using:
+
+1. The ``useState`` and ``useEffect`` hooks.
+1. The ``React-Router`` module.
+
+#### Step :  Developing a Movies Fan App.
+
+ 
+In this lab, we will enhance the static Movies Fan app from the previous lab session. 
+
+The features we will add are:
+
+1. Live data retrieved from the TMDB API.
+1. Navigation.
+1. Filtering of the movie list displayed on the home page.
+1. Tagging your favourite movies.
+
+From a technical perspective, this will involve using:
+
+1. The ``useState`` and ``useEffect`` hooks.
+1. The ``React-Router`` module.
+
+#### Step :  Routing.
+
+ 
+Initially, the app will support two routes:
+
++ ``/ ``(root path) - this will match the Home page, which shows a list of movies from the TMDB API.
++ ``/movies/:id`` (a parameterised route) - this will match the Movie Details page, where we use the id parameter (Movie ID) to retrieve the relevant movie details from the API.
+
+In general, the top component in an app's component hierarchy is concerned with routing. In `src/index.tsx`, replace the entire content with the following code:
+~~~tsx
+import React from "react";
+import ReactDOM from 'react-dom/client'
+import { BrowserRouter, Route, Navigate, Routes } from "react-router-dom";
+import HomePage from "./pages/homePage";
+import MoviePage from "./pages/movieDetailsPage";
+
+const App = () => {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/movies/:id" element={<MoviePage />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
+
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+)
+~~~
+These changes will break our app temporarily, but you may continue anyway.
+
+
+#### Step :  Using Live Movie Data.
+
+ 
+[ You will need an API key for the TMDB service to complete this section - see the previous lab for details.]
+
+
+We want the HomePage to request live movie data from the API. In `src/pages/HomePage.tsx`, replace all the code with the following:
+~~~tsx
+import { useState, useEffect } from "react";  // Changed
+import Header from "../components/HeaderMovieList";
+import Grid from "@mui/material/Grid";
+import MovieList from "../components/MovieList";
+import { DiscoverMovieOverviewProps } from "../types/movieAppType";// Changed
+ 
+const styles = {
+  root: {
+    padding: "20px",
+  },
+};
+
+const MovieListPage = () => {
+  const [movies, setMovies] = useState<DiscoverMovieOverviewProps[]>([]); // Changed
+
+  useEffect(() => {
+    fetch(
+      `https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US&include_adult=false&page=1`
+    )
+      .then((res) => res.json())
+      .then((json) => {
+        //console.log(json)
+        return json.results;
+      })
+      .then((movies) => {
+        setMovies(movies);
+      });
+  }, []);
+  
+return (
+    <Grid container sx={styles.root}>
+      <Grid item xs={12}>
+        <Header title={"Home Page"} />
+      </Grid>
+      <Grid item container spacing={5}>
+      <MovieList movies={movies}></MovieList>
+      </Grid>
+    </Grid>
+  );
+};
+export default MovieListPage;
+~~~
+**NOTE:** You might encounter the Typescript compiler error for ``import.meta.env.VITE_TMDB_KEY``.  If so, TypeScript compiler doesn't know about the `env` property on `import.meta` as it's a feature specific to Vite. To fix this, create a file called **vite-env.d.ts** in the root of the vite project. with the following content:
+
+~~~react
+// vite-env.d.ts
+interface ImportMeta {
+  env: Record<string, string>;
+}
+~~~
+
+Open your TypeScript configuration file (`tsconfig.json`) and  add ``vite-env.d.ts``   to the `include` array:
+
+~~~react
+..... code as before .......
+"include": ["src","vite-env.d.ts"],
+    ..... code as before .......
+~~~
+
+
+
+Restart the development server (`npm run dev`). The browser should be showing a list of current movie titles:
+
+![image-20260325162046272](./img/image-20260325162046272.png)
+
+In the above code, the useEffect hook is querying the `Discovery` endpoint of the API for a set of current movies (read more [here][discovery] ). The URL includes a query string:
+
+>?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US&include_adult=false&page=1
+
+TMDB uses the api_key in the query string of the URL to authenticate the HTTP request. The page attribute at the end indicates the subset of movies we are requesting. It can range from 1 to 1000, where 1 means the first 20 movies, 2 means movies 21 to 40, etc. We have hard-coded it to page 1 for convenience. 
+
+Note the last 'then clause' in the fetch call:
+~~~tsx
+.then(movies => {
+    setMovies(movies);
+});
+~~~
+It stores the API's response in a state variable called *movies* - created by the useState hook. 
+
+The second 'then' clause of the fetch has a (commented-out) `console.log` statement; enable it to help your understanding of the response structure from the API. Uncomment the line and open the developer tools in the browser and examine the output from the log statement:
+
+![][structure]
+
+Take some time to explore the content of the response's *results* property.
+
+The 'eslint' line in the above code stops the ESLint tool from reporting an (annoying) warning message.
+
+In `src/components/MovieCard.tsx` make two changes:
+
++ Wrap the 'More Info' button in a Link, as follows
+~~~tsx
+        <Link to={`/movies/${movie.id}`}>
+          <Button variant="outlined" size="medium" color="primary">
+            More Info ...
+          </Button>
+        </Link>
+~~~
++ Add an import at the top of the file:
+~~~tsx
+import { Link } from "react-router-dom";
+~~~
+
+This modification means clicking a card's 'More Info' button will change the browser's URL address, for example, to this:
+
+> http://127.0.0.1:5173//movies/475557
+
+This URL pattern  matches the first Route in the app's routing configuration (see `src/index.tsx`):
+~~~tsx
+    <Route path="/movies/:id" element={<MoviePage />} />
+~~~
+The id parameter in the Route's path will be bound to the id of the clicked movie, e.g. 475557. The Route causes the app to mount the Movie Details page. That page's logic must request the movie's details from the TMDB API - previously, we passed in the details as a prop, but this was a temporary solution. In `src/pages/MovieDetailsPage.tsx`, make the following modifications:
+
+~~~tsx
+import {useState, useEffect}  from "react"; // replace existing react import
+import { useParams } from "react-router-dom";
+import { MovieDetailsProps , MovieImage} from "../types/movieAppTypes";// replace existing MoviePageProps 
+
+..... other imports ......
+
+...... style code .....
+
+const MoviePage = () => {
+  const { id } = useParams();
+  const [movie, setMovie] = useState< MovieDetailsProps>();
+  const [images, setImages] = useState<MovieImage[]>([]);
+
+  useEffect(() => {
+    fetch(
+      `https://api.themoviedb.org/3/movie/${id}?api_key=${import.meta.env.VITE_TMDB_KEY}`
+    )
+      .then((res) => {
+        return res.json();
+      })
+      .then((movie) => {
+        // console.log(movie)
+        setMovie(movie);
+      });
+  }, [id]);
+
+  useEffect(() => {
+    fetch(
+      `https://api.themoviedb.org/3/movie/${id}/images?api_key=${import.meta.env.VITE_TMDB_KEY}`
+    )
+      .then((res) => res.json())
+      .then((json) => json.posters)
+      .then((images) => {
+        setImages(images);
+      });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  return (
+    <>
+     ..... code as before .....
+
+    </>
+  );
+};
+~~~
+[Note: You are replacing the 'img' tag currently in the code with the one shown above.]
+
+Some observations on the above code:
+
++ The useParams hook (from react-router) allows the component to extract the movie id from the browser's parameterized URL address. 
++ The first useEffect hook uses the API's movie endpoint (read more [here][movie]) to get the full details on the film. 
++ The second useEffect gets the set of images for the same movie.
+
+Click the 'More Info' button of any movie on the home page. You should now see the details page for that movie:
+
+![][detailp]
+
+The list of genres in the filtering card's dropdown is hard-coded. Instead, we can populate the list from the API's genre endpoint (read more [here][genres]), which returns an array, for example:
+~~~tsx
+[
+  {
+    id: '"1",
+    name: "Action"
+  },
+  {
+    id: '"2",
+    name: "Adventure"
+  },  {
+    id: '"3",
+    name: "Animation"
+  },
+  . . . etc . . . . 
+]
+~~~
+This array returned by TMDB does not include the 'all genres' option; we must add it manually. Assigning it a genre id of zero will avoid a clash with any existing genre id.
+
+Create a new type to restrict the Filter options to either `"title"` or `"genre"`. In `src/types/movieAppTypes.ts`, add the following type:
+
+~~~typescript
+export type FilterOption = "title" | "genre";
+~~~
+
+
+In `src/components/FilterMoviesCard.tsx`, make the changes shown below:
+~~~tsx
+import React, { useState, useEffect, ChangeEvent } from "react";//update existing import
+import { FilterOption } from "../types/movieAppTypes"
+import { SelectChangeEvent } from "@mui/material";
+..... other imports ......
+
+...... style code .....
+
+interface FilterMoviesCardProps {
+  titleFilter: string;
+  genreFilter: string;
+}
+
+const FilterMoviesCard: React.FC<FilterMoviesCardProps> = ({ titleFilter, genreFilter }) => {
+  const [genres, setGenres] = useState([{ id: '0', name: "All" }])
+
+  useEffect(() => {
+    fetch(
+      `https://api.themoviedb.org/3/genre/movie/list?api_key=${import.meta.env.VITE_TMDB_KEY}`
+    )
+      .then(res => res.json())
+      .then(json => {
+        return json.genres
+      })
+      .then(apiGenres => {
+        setGenres([genres[0], ...apiGenres]);
+      });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const handleChange = (e: SelectChangeEvent, type: FilterOption, value: string) => {
+    e.preventDefault()
+    // Completed later
+  };
+
+  const handleTextChange = (e: ChangeEvent<HTMLInputElement>) => {
+    handleChange(e, "title", e.target.value)
+  }
+
+  const handleGenreChange = (e: SelectChangeEvent) => {
+    handleChange(e, "genre", e.target.value)
+  };
+  return (
+    <>
+      .....code as before ....
+~~~
+In the same file, replace the lines:
+~~~tsx
+    <TextField
+      sx={styles.formControl}
+      id="filled-search"
+      label="Search field"
+      type="search"
+      variant="filled"
+    />
+~~~
+with this:
+~~~tsx
+    <TextField
+      sx={styles.formControl}
+      id="filled-search"
+      label="Search field"
+      type="search"
+      value={titleFilter}
+      variant="filled"
+      onChange={handleTextChange}
+    />
+~~~
+and replace the lines:
+~~~tsx
+    <Select
+      labelId="genre-label"
+      id="genre-select"
+    >
+~~~
+with this:
+~~~tsx
+    <Select
+      labelId="genre-label"
+      id="genre-select"
+      value={genreFilter}
+      onChange={handleGenreChange}
+    >
+~~~
+Filtering the list of movies on the home page is not yet complete. For now, the changes to note above are:
+
++ The component retrieves the complete list of genres from TMDB and stores them in a local state.
++ This list is augmented with an 'all genres' entry, 
++ The user input fields (text box and dropdown menu) have an event handlers function to process the user input (not yet complete).
+
+We will see the effect of the above changes in the next section
+
+Before continuing, update the project's git repository, as follows:
+~~~
+$ git add -A
+$ git commit -m "Added routing and live data from API."
+$ git push origin master
+~~~
+
+[discovery]: https://developers.themoviedb.org/3/discover
+[movie]: https://developers.themoviedb.org/3/movies/get-movie-details
+[genres]: https://developers.themoviedb.org/3/genres/get-movie-list
+[current]: ./img/current.png
+[structure]: ./img/structure.png
+[detailp]: ./img/detailp.png
+[allgenres]: ./img/allgenres.png
+
+#### Step :  The Filtering behaviour.
+
+ 
+The user can filter the list of movies displayed on the home page. A floating action button ([read more](https://material-ui.com/components/floating-action-button/)) will trigger the displaying of the FilterMoviesCard component. This component allows the user enter a movie title substring and/or select a movie genre. The Material design Drawer component ([read more](https://material-ui.com/components/drawers/)) is used as a side sheet to display the filter card.
+
+>"Side sheets are surfaces containing supplementary content that is anchored to the left or right edge of the screen."
+
+![][filtering]
+
+The FilterMoviesCard component manages the filtering input fields. However, the HomePage component uses these values to compute the matching list of movies. The design solution for this problem is the *Inverse data flow pattern* or *Data Down, Action Up*(last topic's lecture 2) . According to the pattern, the HomePage component stores the filtering data as 'state'.
+
+In `src/pages/homePage.tsx`, we need:
+
++ A useState hook to manage the state variables.
++ A function to update the state.
++ Logic to compute the subset of matching movies.
++ A 'floating action' button.
+
+In `src/pages/HomePage.tsx`, replace the entire content with the following:
+~~~tsx
+import { useState, useEffect } from "react";  // Changed
+import Header from "../components/HeaderMovieList";
+import FilterCard from "../components/FilterMoviesCard";
+import Grid from "@mui/material/Grid";
+import MovieList from "../components/MovieList";
+import Fab from "@mui/material/Fab";
+import Drawer from "@mui/material/Drawer";
+import { FilterOption,DiscoverMovieOverviewProps } from "../types/movieAppType";// Changed
+ 
+const styles = {
+  root: {
+    padding: "20px",
+  },
+   fab: {
+    marginTop: 8,
+    position: "fixed",
+    top: 2,
+    right: 2,
+  },
+};
+
+const MovieListPage = () => {
+  const [movies, setMovies] = useState<DiscoverMovieOverviewProps[]>([]); // Changed
+  const [titleFilter, setTitleFilter] = useState("");
+  const [genreFilter, setGenreFilter] = useState("0");
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
+  const genreId = Number(genreFilter);
+
+const displayedMovies = movies
+    .filter((m: DiscoverMovieOverviewProps) => {
+      return (m.title ?? "").toLowerCase().search(titleFilter.toLowerCase()) !== -1;
+    })
+    .filter((m: DiscoverMovieOverviewProps) => {
+      return genreId > 0 ? m.genre_ids?.includes(genreId) : true;
+    });
+
+  const handleChange = (type: FilterOption, value: string) => {
+      if (type === "title") setTitleFilter(value);
+      else setGenreFilter(value);
+    };
+
+  useEffect(() => {
+    fetch(
+      `https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US&include_adult=false&page=1`
+    )
+      .then((res) => res.json())
+      .then((json) => {
+        //console.log(json)
+        return json.results;
+      })
+      .then((movies) => {
+        setMovies(movies);
+      });
+  }, []);
+  
+return (
+    <>
+      <Grid container sx={styles.root}>
+        <Grid item xs={12}>
+          <Header title={"Home Page"} />
+        </Grid>
+        <Grid item container spacing={5}>
+          <MovieList movies={displayedMovies}></MovieList>
+        </Grid>
+      </Grid>
+      <Fab
+          color="secondary"
+          variant="extended"
+          onClick={() => setDrawerOpen(true)}
+          sx={styles.fab}
+        >
+          Filter
+      </Fab>
+      <Drawer
+        anchor="left"
+        open={drawerOpen}
+        onClose={() => setDrawerOpen(false)}
+      >
+        <FilterCard
+          onUserInput={handleChange}
+          titleFilter={titleFilter}
+          genreFilter={genreFilter}
+        />
+      </Drawer>
+    </>
+  );
+};
+export default MovieListPage;
+~~~
+Note that we use the "nullish " operator here in the filter using genres callback function:
+<img src="./img/image-20240604111908223.png" alt="image-20240604111908223" style="zoom:80%;" />
+
+The `?.` operator, known as optional chaining, checks if the property exists before proceeding with the rest of the operation. This is useful for avoiding `null` or `undefined` errors when trying to access properties on `undefined` or `null` values.
+
+**NOTE:  The above change will also cause a compile error for the <FilterCard...> element**. This is because we pass a callback function to the FilterMoviesCard and need to specify it in the interface for the component. FilterMoviesCard invokes the callback whenever the user changes a filtering input. In `components/FilterMoviesCard.tsx`, update the **interface** and the **handleChange** event handler as follows:
+
+~~~tsx
+ ..... code as before .....
+
+interface FilterMoviesCardProps {
+  onUserInput: (f: FilterOption, s: string)  => void; // Add this line
+  titleFilter: string;
+  genreFilter: string;
+}
+
+const FilterMoviesCard= ({ titleFilter, genreFilter, onUserInput }: FilterMoviesCardProps) => { //add onUserInput to destructured props 
+
+    ..... code as before .....
+
+      const handleChange = (e: SelectChangeEvent, type: FilterOption, value: string) => {
+        e.preventDefault()
+        onUserInput(type, value)
+      };
+
+   ..... code as before .....
+   
+~~~
+
+Go to the Home page in the browser, click the floating action button (top right) and change the genre selection or type in the text box. Click anywhere on the page. The app recomputes the list of displayed movies automatically.
+
+Before continuing, from the integrated terminal panel, update the git repository as follows:
+~~~
+$ git add -A
+$ git commit -m "Added filtering of movie list."
+$ git push origin master
+~~~
+
+[filtering]: ./img/filtering.png
+#### Step :  Tagging favourite movies.
+
+ 
+On the Home page, we can tag a movie as one of our favourites by clicking its 'Favourite' icon. This tagging will cause the related card to show a red Favourite Icon on the title bar. As a temporary solution, we will record a tagging by adding a 'favourite' property to the movie object and set it to true. [A more realistically approach is to persist them to a database via an API.] 
+
+![][favorites]
+
+We will again use the inverse data flow (Data down, Action up) pattern, this time to handle when a user tags a movie as a favourite. We record this fact by adding a 'favourite' property to the movie object and set it to true. In `pages/HomePage.tsx`, make the following changes to the component:
+~~~tsx
+..... code as before ......
+
+ const MovieListPage = () => {
+  ..... code as before .......
+
+   // New function
+  const addToFavourites = (movieId: number) => {
+    const updatedMovies = movies.map((m: DiscoverMovieOverviewProps) =>
+      m.id === movieId ? { ...m, favourite: true } : m
+    );
+    setMovies(updatedMovies);
+  };
+
+  useEffect(() => {
+    ..... code as before .....
+  }
+  return (
+    ...... code as before .....
+~~~
+Also, replace the line:
+~~~tsx
+   <MovieList movies={displayedMovies} ></MovieList>
+~~~
+with this:
+~~~tsx
+    <MovieList movies={displayedMovies} selectFavourite={addToFavourites} />
+~~~
+In `src/types/movieAppTypes.ts`, update the  `DiscoverMovieOverviewProps` and `MovieDetailsProps` types to include a favourite property.  Replace both with the following:
+
+~~~tsx
+ ..... code as before .....
+// Type for a single movie object from the discover movies response
+export type DiscoverMovieOverviewProps =  NonNullable<DiscoverMoviesProps["results"]>[number] & {
+favourite: boolean;
+};
+...code as before
+// Type for the API response when fetching detailed movie information
+export type MovieDetailsProps = paths["/3/movie/{movie_id}"]["get"]["responses"][200]["content"]["application/json"] & {
+favourite: boolean;
+};
+ ..... code as before .....
+~~~
+
+
+
+Also, in the same file, add/change the following:
+
+~~~tsx
+... as before ....
+
+// Props interface for components that display a list of movies
+export type BaseMovieListProps  ={
+  movies: NonNullable<DiscoverMovieOverviewProps[]>;
+  selectFavourite: (movieId: number) => void;  //add this
+}
+
+... code as before ....
+~~~
+
+In `components/MovieList.tsx`, replace the following lines to use the new interface description
+
+Replace
+
+~~~tsx
+const MovieList  = ({ movies }: BaseMovieListProps) => {
+~~~
+
+with this:
+~~~tsx
+const MovieList  = ({ movies, selectFavourite }: BaseMovieListProps) => {
+~~~
+
+Also, replace the line:
+
+~~~tsx
+    <Movie key={m.id} {...m} />
+~~~
+with this:
+~~~tsx
+    <Movie key={m.id} movie={m} selectFavourite={selectFavourite} />
+~~~
+This will cause compile errors for now - we will fix those next....
+
+In `components/MovieCard.tsx`, add/change the following change to accommodate the new event prop:
+
+~~~tsx
+import  {MouseEvent} from "react";
+... imports as before ....
+... style as before ....
+
+interface MovieCardProps  {
+  movie: DiscoverMovieOverviewProps;
+  selectFavourite: (movieId: number) => void;
+} // Add this
+
+const MovieCard = ({movie, selectFavourite}: MovieCardProps) => {
+ 
+  const handleAddToFavourite = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    selectFavourite(movie.id);
+  };
+
+  return (
+    ...... code as before .....
+~~~
++ In the same file, replace the lines:
+~~~tsx
+    <IconButton aria-label="add to favourites" onClick={null}>
+      <FavoriteIcon color="primary" fontSize="large" />
+    </IconButton>
+~~~
+with this:
+~~~tsx
+ <IconButton aria-label="add to favourites" onClick={handleAddToFavourite}>
+          <FavoriteIcon color="primary" fontSize="large" />
+    </IconButton>
+~~~
++ add an import at the top:
+~~~tsx
+import Avatar from "@mui/material/Avatar";
+~~~
++ and replace the line:
+~~~tsx
+    <CardHeader title={movie.title} />
+~~~
+with this:
+~~~tsx
+      <CardHeader
+        avatar={
+          movie.favourite ? (
+            <Avatar sx={styles.avatar}>
+              <FavoriteIcon />
+            </Avatar>
+          ) : null
+        }
+        title={
+          <Typography variant="h5" component="p">
+            {movie.title}{" "}
+          </Typography>
+        }
+      />
+~~~
+Until now, a component prop is either a data object or a callback functions. However, in the last excerpt above, a component is the value assigned to the title and avatar props. This is acceptable because a component transpiles to a function. Later we will develop custom components that accept other components as props.
+
+The above changes cause the following runtime execution flow:
+1. On the Home page, the user clicks a movie card's Favourite icon.
+1. The event handler invokes the callback provided by the HomePage. 
+1. The callback sets the movie's favourite property to true - a state change. 
+1. This state change causes the HomePage to re-render. 
+1. The tagged MovieCard displays a (red) Favourite icon in its title.   
+
+Try selecting some movies as your favourites.
+
+We need a new view to display the list of favourites. Its layout will be identical to the home page. Implementing this without violating the DRY principle (Don't Repeat Yourself) will require some refactoring - see next section. As a placeholder, create the file `src/pages/FavouriteMoviesPage.tsx` and add this code:
+~~~tsx
+import React from "react";
+
+const FavouriteMoviesPage = () => {
+    return <h2>Favourite Movies</h2>
+}
+
+export default FavouriteMoviesPage
+~~~
+We must update the routing configuration and add a simple site navigation bar. In `src/index.tsx`, completely replace the content with the following:
+~~~tsx
+import ReactDOM from 'react-dom/client'
+import { BrowserRouter, Route, Navigate, Routes , Link} from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import MoviePage from "./pages/MovieDetailsPage";
+import FavouriteMoviesPage from "./pages/FavouriteMoviesPage";
+
+const App = () => {
+  return (
+     <BrowserRouter>
+      <ul>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/movies/favourites">Favourites</Link>
+        </li>
+      </ul>
+      <Routes>
+        <Route path="/movies/favourites" element={<FavouriteMoviesPage />} />
+        <Route path="/movies/:id" element={<MoviePage />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
+
+ReactDOM.createRoot(document.getElementById('root')!).render(
+    <App />)
+
+~~~
+We must restart the development server whenever we make routing configuration changes:
+
+~~~
+npm run dev
+~~~
+In the browser, check the new navigation links at the top are working.
+
+The app has a bug! Try the following sequence:
+
+1. Go to the home page.
+1. Click the 'Favourites' icon of the first three movies.
+1. Notice, the selected movies are tagged as expected. 
+1. Go to the Favourites page, using the navigation links on top
+1. Navigate back to the Home page. The three selected movies are no longer tagged. This reset happened because the useEffect hook queries the API every time the home page component is mounted, i.e. we overwrite the tagged movies information. We will fix this issue in the next lab - I promise!
+
+Commit this work to the repository:
+~~~
+$ git add -A
+$ git commit -m "Add to favourites logic completed; Dummy favourites page."
+$ git push origin main
+~~~
+
+[navigation]: ./img/navigation.png
+[favorites]: ./img/favorites.png
+
+#### Step :  Refactoring.
+
+ 
+### The DRY (Don't Repeat Yourself) principle.
+
+To avoid code duplication between the home page and favourites page, we can define a template page for displaying a list of movies. Props will allow us to reuse the template in different scenarios.
+
++ Add the MovieListPageTemplateProps  in src/types/moviesAppTypes.ts as follows :
+
+  ~~~tsx
+  export interface MovieListPageTemplateProps extends BaseMovieListProps {
+    title: string;
+  }
+  ~~~
+  
+  
+
+Create the file `src/components/TemplateMovieListPage.tsx` and add the following code:
+
+```tsx
+import {useState} from "react";
+import Header from "./HeaderMovieList";
+import FilterCard from "./FilterMoviesCard";
+import Grid from "@mui/material/Grid";
+import Fab from "@mui/material/Fab";
+import Drawer from "@mui/material/Drawer";
+import MovieList from "./MovieList";
+import {MovieListPageTemplateProps} from "../types/movieAppTypes";
+
+const styles = {
+  root: {
+    padding: "20px",
+  },
+  fab: {
+    marginTop: 8,
+    position: "fixed",
+    top: 2,
+    right: 2,
+  },
+};
+
+const MovieListPageTemplate = ({ movies, title, selectFavourite }: MovieListPageTemplateProps) => {
+  const [titleFilter, setTitleFilter] = useState("");
+  const [genreFilter, setGenreFilter] = useState("0");
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  
+  const genreId = Number(genreFilter);
+
+  const displayedMovies = movies
+      .filter((m) => {
+        return (m.title ?? "").toLowerCase().search(titleFilter.toLowerCase()) !== -1;
+      })
+      .filter((m) => {
+        return genreId > 0 ? m.genre_ids?.includes(genreId) : true;
+      });
+  
+    const handleChange = (type: string, value: string) => {
+    if (type === "title") setTitleFilter(value);
+    else setGenreFilter(value);
+  };
+
+  return (
+ <>
+      <Grid container sx={styles.root}>
+        <Grid item xs={12}>
+          <Header title={title} />
+        </Grid>
+        <Grid item container spacing={5}>
+          <MovieList
+            movies={displayedMovies}
+            selectFavourite={selectFavourite}
+          />
+        </Grid>
+      </Grid>
+      <Fab
+        color="secondary"
+        variant="extended"
+        onClick={() => setDrawerOpen(true)}
+        sx={styles.fab}
+      >
+        Filter
+      </Fab>
+      <Drawer
+        anchor="left"
+        open={drawerOpen}
+        onClose={() => setDrawerOpen(false)}
+      >
+        <FilterCard
+          onUserInput={handleChange}
+          titleFilter={titleFilter}
+          genreFilter={genreFilter}
+        />
+      </Drawer>
+    </>  
+  );
+}
+export default MovieListPageTemplate;
+```
+
+
+The bulk of the code currently in `pages/HomePage.tsx` has moved to the template page component above. In `pages/HomePage.tsx`, completely replace its content with the following:
+```tsx
+import { useState, useEffect } from "react";
+import PageTemplate from '../components/TemplateMovieListPage';
+import { DiscoverMovieOverviewProps } from "../types/movieAppTypes";// Changed
+ 
+
+const HomePage = () => {
+  const [movies, setMovies] = useState<DiscoverMovieOverviewProps[]>([]); // Changed
+  const favourites = movies.filter(m => m.favourite)
+  localStorage.setItem('favourites', JSON.stringify(favourites))
+  // New function
+  const addToFavourites = (movieId: number) => {
+    const updatedMovies = movies.map((m: DiscoverMovieOverviewProps) =>
+      m.id === movieId ? { ...m, favourite: true } : m
+    );
+    setMovies(updatedMovies);
+  };
+
+  useEffect(() => {
+    fetch(
+      `https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US&include_adult=false&page=1`
+    )
+      .then((res) => res.json())
+      .then((json) => {
+        // console.log(json);
+        return json.results;
+      })
+      .then((movies) => {
+        setMovies(movies);
+      });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  return (
+    <PageTemplate
+      title='Discover Movies'
+      movies={movies}
+      selectFavourite={addToFavourites}
+    />
+  );
+};
+export default HomePage;
+```
+The Home page should now display as before. 
+
+Note, we are storing the favourite movie objects in the browser's local storage to enable the Favourite movies page access them - we will use a better approach later. In `pages/FavouriteMoviesPage.tsx`, replace the entire content with the following:
+
+```tsx
+import PageTemplate from "../components/TemplateMovieListPage";
+
+const FavouriteMoviesPage = () => {
+    const toDo = () => true;
+    // Get movies from local storage.
+    const movies = JSON.parse(localStorage.getItem("favourites") || '[]');
+  
+    return (
+      <PageTemplate
+        title="Favourite Movies"
+        movies={movies}
+        selectFavourite={toDo}
+      />
+    );
+}
+
+export default FavouriteMoviesPage
+```
+In the browser, go to the Home page and tag some movies as your favourites. Then use the navigation links at the top to navigate to the favourites page:
+
+![][favpage]
+
+There is another known bug in our app; the movies listed on the 'Favourite Movie' pages each have an 'Add to Favourites' icon. This label is not meaningful. We will change it to a 'Delete' icon to mean remove from the favourites, but that's for a future lab.
+
+### Separation of Concerns principle.
+
+Having HTTP fetching code mixed in with UI component code is considered a poor separation of concerns. Create a new file `src/api/tmdb-api.ts` and add the following:
+
+```tsx
+export const getMovies = () => {
+    return fetch(
+      `https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US&include_adult=false&page=1`
+    )
+      .then(res => res.json())
+      .then(json => json.results);
+  };
+  
+  export const getMovie = ( id : string) => {
+    return fetch(
+      `https://api.themoviedb.org/3/movie/${id}?api_key=${import.meta.env.VITE_TMDB_KEY}`
+    ).then(res => res.json());
+  };
+  
+  export const getGenres = () => {
+    return fetch(
+      "https://api.themoviedb.org/3/genre/movie/list?api_key=" +
+        import.meta.env.VITE_TMDB_KEY +
+        "&language=en-US"
+    )
+      .then(res => res.json())
+      .then(json => json.genres);
+  };
+  
+   export const getMovieImages = ( id : string | number) => {
+    return fetch(
+      `https://api.themoviedb.org/3/movie/${id}/images?api_key=${import.meta.env.VITE_TMDB_KEY}`
+    )
+      .then((res) => res.json())
+      .then((json) => json.posters);
+  };
+```
+In `pages/HomePage.tsx` make the following changes:
+
+- add an import:
+```tsx
+import { getMovies } from "../api/tmdb-api";
+```
+- replace the useEffect code with the following:
+```tsx
+ useEffect(() => {
+    getMovies().then(movies => {
+      setMovies(movies);
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+```
+In `pages/MovieDetailsPage.tsx` make similar changes:
+
+- add an import:
+```tsx
+import { getMovie, getMovieImages } from "../api/tmdb-api";
+```
+
+- replace the two useEffects with the following:
+```tsx
+  useEffect(() => {
+    getMovie(id ?? "").then((movie) => {
+      setMovie(movie);
+    });
+  }, [id]);
+
+  useEffect(() => {
+    getMovieImages(id ?? "").then((images) => {
+      setImages(images);
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+```
+Finally, in `components/FilterMoviesCard.jsx`:
+
+- add an import:
+```tsx
+import { getGenres } from "../api/tmdb-api";
+```
+- replace the useEffect code with:
+```tsx
+  useEffect(() => {
+    getGenres().then((allGenres) => {
+      setGenres([genres[0], ...allGenres]);
+    });
+  }, [])
+```
+The app functionality should all work as before.
+
+Commit this work to the repository:
+~~~
+$ git add -A
+$ git commit -m "Refactor: Template list page; HTTP API calls centralised."
+$ git push origin main
+~~~
+
+[favpage]: ./img/favpage.png
+
+#### Step :  Exercise.
+
+ 
+Objective: In the Movie Details page, display the red heart icon in the page header if the movie was tagged as a favourite.
+
+![][exercise]
+
+Be aware that your solution can only work partially as expected due to the deficiencies in the favourite tagging logic explained earlier. Test your solution with the following process:
+
+1. Go to the home page.
+1. Tag a movie as a favourite.
+1. Navigate to that movie's details page by using the 'More Info' link. The red heart should appear in the page header.
+1. Navigate back to the home page. The tagged favourite is no longer selected.
+
+[Hint: The only file you need to edit to complete this exercise is ``components/headerMovie/index.tsx``. The movies tagged as favourites are stored in localstorage, which any component can access.]
+
+On completion, commit the changes:
+~~~bash
+$ git add -A
+$ git commit -m "Exercise - Show favourite icon on Movie Details page.."
+$ git push origin main
+~~~
+
+[exercise]: ./img/exercise.png
+
+### Archive : Resources.
+
+ 
+Includes the routing samples, Render Prop demo, and ES6 samples.
+
+## Topic :   React: Design and Routing.
+
+  
+Examine some further aspects of routing and design patterns in React app development.
+### Talk :  React: Navigation and Routing
+
+  
+Some further navigation and routing techniques.
+### Talk :  React: The Provider Design pattern
+
+  
+An introduction to the React Context API
+### Talk :  React: Private/Protected Routes
+
+  
+Use Context and Routing create a custom component to protect routes.
+### Lab : Lab-Movie_App-Part3
+
+ 
+In this lab, we tackle the third development iteration of the Movies Fan app. 
+
+From the feature list mentioned in Part 1 of this series, we will now implement the following:
+
++ In the Movie details page, the user can optionally show an excerpt from published critic reviews.
++ Clicking the 'More' link on a review excerpt will display the full review text on a separate page.
++ A more professional-styled site header is added.
+
+We will use two new React coding techniques in the implementation:
+
++ A **Component Composition** pattern.
++ **Custom hooks.**
+
+Also, we will utilize the Extended Link routing featured.
+
+
+#### Step :  Developing a Movies Fan App - Part 3.
+
+ 
+In this lab, we tackle the third development iteration of the Movies Fan app. 
+
+From the feature list mentioned in Part 1 of this series, we will now implement the following:
+
++ In the Movie details page, the user can optionally show an excerpt from published critic reviews.
++ Clicking the 'More' link on a review excerpt will display the full review text on a separate page.
++ A more professional-styled site header is added.
+
+We will use two new React coding techniques in the implementation:
+
++ A **Component Composition** pattern.
++ **Custom hooks.**
+
+Also, we will utilize the Extended Link routing featured.
+
+
+#### Step :  Movie Reviews.
+
+ 
+In the Movie Details page, we optionally want to list an extract from each related critic review. The list will appear by clicking a 'floating action' button ([read more](https://material-ui.com/components/floating-action-button/)).
+
+![][fab] 
+
+The Material design Drawer component ([read more](https://material-ui.com/components/drawers/)) is used as a side sheet to display the extracts.
+
+![][extracts]
+
+Each extract has a 'Full Review' link which will display the full review text on a separate page:
+
+![][review]
+
+### Refactoring.
+
+Notice that both of the above pages have the same layout. We should refactor the current code to avail of this similarity, i.e. **reusability**. This time we realise reusability by using component composition based on the _container_ pattern.
+
+Create the file `src/components/templateMoviePage/index.tsx` and add the following code:
+
+```tsx
+import React, { useState, useEffect } from "react";
+import MovieHeader from "../headerMovie";
+import Grid from "@mui/material/Grid";
+import ImageList from "@mui/material/ImageList";
+import ImageListItem from "@mui/material/ImageListItem";
+import { getMovieImages } from "../../api/tmdb-api";
+import { MovieImage, MovieDetailsProps } from "../../types/interfaces";
+
+const styles = {
+    gridListRoot: {
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "space-around",
+    },
+    gridListTile: {
+        width: 450,
+        height: '100vh',
+    },
+};
+
+interface TemplateMoviePageProps {
+    movie: MovieDetailsProps;
+    children: React.ReactElement;
+}
+
+
+const TemplateMoviePage: React.FC<TemplateMoviePageProps> = ({movie, children}) => {
+    const [images, setImages] = useState([]);
+
+    useEffect(() => {
+        getMovieImages(movie.id).then((images) => {
+            setImages(images);
+        });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    return (
+        <>
+            <MovieHeader {...movie} />
+
+            <Grid container spacing={5} style={{ padding: "15px" }}>
+                <Grid item xs={3}>
+                    <div>
+                        <ImageList cols={1}>
+                            {images.map((image: MovieImage) => (
+                                <ImageListItem
+                                    key={image.file_path}
+                                    sx={styles.gridListTile}
+                                    cols={1}
+                                >
+                                    <img
+                                        src={`https://image.tmdb.org/t/p/w500/${image.file_path}`}
+                                        alt={'Image alternative'}
+                                    />
+                                </ImageListItem>
+                            ))}
+                        </ImageList>
+                    </div>
+                </Grid>
+
+                <Grid item xs={9}>
+                    {children}
+                </Grid>
+            </Grid>
+        </>
+    );
+};
+
+export default TemplateMoviePage;
+```
+The vast majority of the above code is lifted from the current movie Details page. Notice the reference to _children_ in the template component's set of props. We use it in the body of the TSX:
+
+```tsx
+    <Grid item xs={9}>
+      {children}
+    </Grid>
+```
+The children prop provides the opportunity to perform component composition. At runtime, 'children' will be bound to the element/component provided by the template's consumer, i.e. the Movie Details page component, for example. 
+
+In `src/pages/movieDetailsPage.tsx`, replace the entire content with the following:
+
+```tsx
+import React, {useState, useEffect}  from "react"; // replace existing react import
+import { useParams } from "react-router-dom";
+import MovieDetails from "../components/movieDetails";
+import { MovieDetailsProps} from "../types/interfaces";
+import { getMovie} from "../api/tmdb-api";
+import PageTemplate from "../components/templateMoviePage";
+
+
+const MovieDetailsPage: React.FC= () => {
+  const { id } = useParams();
+  const [movie, setMovie] = useState<MovieDetailsProps>();
+
+  useEffect(() => {
+    getMovie(id ?? "").then((movie) => {
+      setMovie(movie);
+    });
+  }, [id]);
+
+  return (
+    <>
+      {movie ? (
+        <>
+        <PageTemplate movie={movie}>
+          <MovieDetails {...movie} />
+        </PageTemplate>
+      </>
+    ) : (
+      <p>Waiting for movie details</p>
+    )}
+    </>
+  );
+};
+
+export default MovieDetailsPage;
+```
+
+The effect of the above code is the _children_ prop of TemplateMoviePage is bound to:
+
+```tsx
+<MovieDetails {...movie } />
+```
+A common source of errors with React apps is a component/page renders __before__ the data it needs is retrieved from the backend API - the initial rendering happens before the useEffect hook completes. This scenario applies to MovieDetailsPage. The solution is to have a condition test in the TSX code that checks the availability of the API data. If available, it displays it, otherwise an appropriate message displays. In the above code, the ternary operator performs the condition test.
+~~~tsx
+   movie ? display data : display message
+~~~
+Note, we initialise the movie state variable to null (boolean false), but eventually, it is assigned to an object (boolean true)
+
+In the browser, check the movie details page renders as before.
+
+### Showing movie reviews.
+
+We will develop the code for this feature from the ground up, starting with the API call. 
+In `src/types/interfaces.ts`, add the following interface:
+
+```tsx
+  export interface Review{
+    id: string;
+    content: string
+    author: string
+  }
+```
+
+In `src/api/tmdb-api.ts`, add a new function at the bottom:
+
+```tsx
+  export const getMovieReviews = (id: string | number) => { //movie id can be string or number
+    return fetch(
+      `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${import.meta.env.VITE_TMDB_KEY}`
+    )
+      .then((res) => res.json())
+      .then((json) => {
+        // console.log(json.results);
+        return json.results;
+      });
+  };
+```
+This function will be used to retrieve reviews for a movie. 
+
+Create the file `src/components/movieReviews/index.tsx`. It displays review extracts in a table layout, as follows:
+
+```tsx
+import React, { useEffect, useState } from "react";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
+import { Link } from "react-router-dom";
+import { getMovieReviews } from "../../api/tmdb-api";
+import { excerpt } from "../../util";
+
+import { MovieDetailsProps, Review } from "../../types/interfaces"; // Import the MovieT type from the appropriate location
+
+const styles = {
+    table: {
+        minWidth: 550,
+    },
+};
+
+const MovieReviews: React.FC<MovieDetailsProps> = (movie) => { 
+    const [reviews, setReviews] = useState([]);
+
+    useEffect(() => {
+        getMovieReviews(movie.id).then((reviews) => {
+            setReviews(reviews);
+        });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    return (
+        <TableContainer component={Paper}>
+            <Table sx={styles.table} aria-label="reviews table">
+                <TableHead>
+                    <TableRow>
+                        <TableCell >Author</TableCell>
+                        <TableCell align="center">Excerpt</TableCell>
+                        <TableCell align="right">More</TableCell>
+                    </TableRow>
+                </TableHead>
+                <TableBody>
+                    {reviews.map((r: Review) => (
+                        <TableRow key={r.id}>
+                            <TableCell component="th" scope="row">
+                                {r.author}
+                            </TableCell>
+                            <TableCell >{excerpt(r.content)}</TableCell>
+                            <TableCell >
+                                <Link
+                                    to={`/reviews/${r.id}`}
+                                    state={{
+                                        review: r,
+                                        movie: movie,
+                                    }}
+                                >
+                                    Full Review
+                                </Link>
+                            </TableCell>
+                        </TableRow>
+                    ))}
+                </TableBody>
+            </Table>
+        </TableContainer>
+    );
+}
+
+export default MovieReviews;
+```
+The above component maps over the array of reviews retrieved from the API. Some points to note about the code:
+
+- Each review in the table has a hyperlink to navigate to a 'full review' page.
+- The hyperlinks use the extended option of the React Router Link component. It allows us to pass two props (movie and review) to the movie review page component - yet to be developed.
+- We are using a utility function to truncate a review's text. Create the file `src/util.ts` and add this utility function:
+
+```tsx
+import truncate from "lodash/truncate";
+
+export const excerpt = (string: string) => {
+    return truncate(string, {
+        length: 400, // maximum 400 characters
+        separator: /,?\.* +/, // separate by spaces, including preceding commas and periods
+    });
+}
+
+```
+We will use the Material Ui Drawer component to connect the MovieReviews component to the Movie Details page. In `components/movieDetails/index.tsx`, replace the content with the following:
+
+```tsx
+import React, { useState } from "react";
+import Chip from "@mui/material/Chip";
+import Paper from "@mui/material/Paper";
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import MonetizationIcon from "@mui/icons-material/MonetizationOn";
+import StarRate from "@mui/icons-material/StarRate";
+import Typography from "@mui/material/Typography";
+import { MovieDetailsProps } from "../../types/interfaces";
+import NavigationIcon from "@mui/icons-material/Navigation";
+import Fab from "@mui/material/Fab";
+import Drawer from "@mui/material/Drawer";
+import MovieReviews from '../movieReviews'
+
+const styles = {
+    chipSet: {
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexWrap: "wrap",
+        listStyle: "none",
+        padding: 1.5,
+        margin: 0,
+    },
+    chipLabel: {
+        margin: 0.5,
+    },
+    fab: {
+        position: "fixed",
+        top: 50,
+        right: 2,
+    },
+};
+
+const MovieDetails: React.FC<MovieDetailsProps> = (movie) => {
+
+    const [drawerOpen, setDrawerOpen] = useState(false); // New
+
+    return (
+        <>
+            <Typography variant="h5" component="h3">
+                Overview
+            </Typography>
+
+            <Typography variant="h6" component="p">
+                {movie.overview}
+            </Typography>
+
+            <Paper component="ul" sx={styles.chipSet}>
+                <li>
+                    <Chip label="Genres" sx={styles.chipLabel} color="primary" />
+                </li>
+                {movie.genres.map((g) => (
+                    <li key={g.name}>
+                        <Chip label={g.name} />
+                    </li>
+                ))}
+            </Paper>
+            <Paper component="ul" sx={styles.chipSet}>
+                <Chip icon={<AccessTimeIcon />} label={`${movie.runtime} min.`} />
+                <Chip
+                    icon={<MonetizationIcon />}
+                    label={`${movie.revenue.toLocaleString()}`}
+                />
+                <Chip
+                    icon={<StarRate />}
+                    label={`${movie.vote_average} (${movie.vote_count}`}
+                />
+                <Chip label={`Released: ${movie.release_date}`} />
+            </Paper>
+            <Fab
+                color="secondary"
+                variant="extended"
+                onClick={() => setDrawerOpen(true)}
+                sx={styles.fab}
+            >
+                <NavigationIcon />
+                Reviews
+            </Fab>
+            <Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
+                <MovieReviews {...movie} />
+            </Drawer>
+        </>
+    );
+};
+export default MovieDetails;
+```
+A Drawer component is either visible (open) or hidden. We control this with a boolean state variable - drawerOpen.
+
+In the browser:
+
+1. Go to the home page.
+1. Click any movie's 'More Info' button.
+1. Click the 'Reviews' button on the movie details page. [Some movies have no reviews, so choose another movie.]
+1. The review extracts should overlay the top part of the page.
+
+![][extracts]
+
+Before continuing, update the git repository as follows:
+
+```
+$ git add -A
+$ git commit -m "Show movie review excerpts; Refactor Details page."
+$ git push origin main
+```
+
+
+
+[extracts]: ./img/extracts.png
+[review]: ./img/review.png
+[fab]: ./img/fab.png
+[reviews]: ./img/reviews.png
+
+#### Step :  Full Review Page.
+
+ 
+We can now develop a page that displays the full text of a movie review. Create the file `src/components/movieReview/index.tsx` and add this code:
+
+```tsx
+import React from "react";
+import { Review } from "../../types/interfaces";
+
+const MovieReview: React.FC<Review> =  (props) => {
+  return (
+    <>
+      <p>Review By: {props.author} </p>
+      <p>{props.content} </p>
+    </>
+  );
+};
+export default MovieReview
+```
+
+Create the file `src/pages/movieReviewPage.tsx` and add this code:
+
+```tsx
+import React from "react";
+import { useLocation } from "react-router-dom";
+import PageTemplate from "../components/templateMoviePage";
+import MovieReview from "../components/movieReview";
+
+const MovieReviewPage: React.FC = () => {
+  const { state : {movie, review } } = useLocation()
+  return (
+    <PageTemplate movie={movie}>
+      <MovieReview {...review} />
+    </PageTemplate>
+  );
+};
+
+export default MovieReviewPage;
+```
+
+This full review page is rendered when the user clicks a review excerpt's 'Full Review' link. The `useLocation` hook used above returns the new 'state' of the browser's URL address after a link is clicked. As explained in the previous section, the state includes two object references - movie and review. Our code uses destructuring to access these references. Also, we use component composition above, this time between the template and the MovieReview components.
+
+The final step is to add a route for the new page to `src/index.tsx`, as follows:
+
++ Add an import at the top:
+
+```tsx
+import MovieReviewPage from "./pages/movieReviewPage";
+```
+
++ Add a new route:
+
+```tsx
+<Routes>
+    <Route path="/reviews/:id" element={<MovieReviewPage/>} />
+    . . . other routes . . .
+</Routes>
+```
+
+In the browser:
+
+1. Go to the home page and click on a movie.
+1. On the movie details page, click the Reviews button. 
+1. Click the 'Full Review' link of one of the review excerpts.
+
+Update the git repository as follows:
+
+```
+$ git add -A
+$ git commit -m "Full review page."
+$ git push origin main
+```
+
+[freview]: ./img/review.png
+
+#### Step :  Custom hooks (Basic).
+
+ 
+Custom hooks allow us to extract component state logic into reusable functions. As an example, we will define a custom hook that manages a movie object state variable. Create the file `src/hooks/useMovie.ts` and add this code:
+
+```ts
+import { useEffect, useState } from "react";
+import { getMovie } from '../api/tmdb-api'
+import { MovieDetailsProps } from '../types/interfaces'
+
+type MovieHookReturnType = [MovieDetailsProps | undefined, React.Dispatch<React.SetStateAction<MovieDetailsProps | undefined>>];
+
+const useMovie  = (id: string):MovieHookReturnType  => {
+    const [movie, setMovie] = useState<MovieDetailsProps>();
+    useEffect(() => {
+        getMovie(id).then(movie => {
+            setMovie(movie);
+        });
+    }, [id]);
+    return [movie, setMovie];
+};
+
+export default useMovie
+```
+The above declaration is not a component, it's just an ordinary Typescipt function.
+
+To use our custom hook, in `pages/movieDetailsPage.tsx`, replace the entire content with the following:
+
+```tsx
+import React from "react"; // replace existing react import
+import { useParams } from "react-router-dom";
+import MovieDetails from "../components/movieDetails";
+import PageTemplate from "../components/templateMoviePage";
+import useMovie from "../hooks/useMovie";
+
+const MovieDetailsPage: React.FC= () => {
+  const { id } = useParams();
+  const [movie] = useMovie(id ?? "");
+
+  return (
+    <>
+      {movie ? (
+        <>
+        <PageTemplate movie={movie}> 
+          <MovieDetails {...movie} />
+        </PageTemplate>
+      </>
+    ) : (
+      <p>Waiting for movie details</p>
+    )}
+    </>
+  );
+};
+
+export default MovieDetailsPage;
+```
+
+This page component no longer has the `useState` and `useEffect` hooks; they have moved to our custom hook. Check the page still works.
+
+Commit this work:
+
+```
+$ git add -A
+$ git commit -m "Refactor - useMovie custom hook."
+$ git push origin main
+```
+
+#### Step :  Site Header.
+
+ 
+We need a better looking site header for the app.
+
+![][newheader]
+
+There are some extra dummy navigation options on the right for demonstration purposes. We will also use the header to demonstrate responsiveness using the Material UI library. The objective is to replace the list of navigation links on the right with a drop-down menu:
+
+![][responsive]
+
+Create the file `src/components/siteHeader/index.tsx` and add this code:
+
+```tsx
+import React, { useState, MouseEvent } from "react";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import IconButton from "@mui/material/IconButton";
+import Button from "@mui/material/Button";
+import { styled } from "@mui/material/styles";
+import MenuIcon from "@mui/icons-material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import Menu from "@mui/material/Menu";
+import { useNavigate } from "react-router-dom";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
+
+const styles = {
+    title: {
+      flexGrow: 1,
+    },
+  };
+
+const Offset = styled("div")(({ theme }) => theme.mixins.toolbar);
+
+const SiteHeader: React.FC = () => {
+  const navigate = useNavigate();
+  const [anchorEl, setAnchorEl] = useState<HTMLButtonElement|null>(null);
+  const open = Boolean(anchorEl);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
+
+  const menuOptions = [
+    { label: "Home", path: "/" },
+    { label: "Favorites", path: "/movies/favourites" },
+    { label: "Option 3", path: "/" },
+    { label: "Option 4", path: "/" },
+  ];
+
+  const handleMenuSelect = (pageURL: string) => {
+    navigate(pageURL);
+  };
+
+  const handleMenu = (event: MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  return (
+    <>
+      <AppBar position="fixed" elevation={0} color="primary">
+        <Toolbar>
+          <Typography variant="h4" sx={styles.title}>
+            TMDB Client
+          </Typography>
+          <Typography variant="h6" sx={styles.title}>
+            All you ever wanted to know about Movies!
+          </Typography>
+          {isMobile ? (
+            <>
+              <IconButton
+                aria-label="menu"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleMenu}
+                color="inherit"
+                size="large"
+              >
+                <MenuIcon />
+              </IconButton>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorEl}
+                anchorOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                open={open}
+                onClose={() => setAnchorEl(null)}
+              >
+                {menuOptions.map((opt) => (
+                  <MenuItem
+                    key={opt.label}
+                    onClick={() => handleMenuSelect(opt.path)}
+                  >
+                    {opt.label}
+                  </MenuItem>
+                ))}
+              </Menu>
+            </>
+          ) : (
+            <>
+              {menuOptions.map((opt) => (
+                <Button
+                  key={opt.label}
+                  color="inherit"
+                  onClick={() => handleMenuSelect(opt.path)}
+                >
+                  {opt.label}
+                </Button>
+              ))}
+            </>
+          )}
+        </Toolbar>
+      </AppBar>
+      <Offset />
+    </>
+  );
+};
+
+export default SiteHeader;
+```
+The site header is permanent across all pages. 
+Make the following changes to `src/index.tsx` to use the headers:
+
+- Add an import at the top:
+
+```tsx
+import SiteHeader from './components/siteHeader'
+```
+- Replace the current site header code with a reference to the new component, as outlined below:
+
+```
+const App = () => {
+  return (
+      <BrowserRouter>
+          <SiteHeader />      {/* New Header  */}
+          <Routes>
+             . . . as before . . . .
+```
+
+Check in the browser that the new header renders correctly.
+
+Some comments on the SiteHeader component:
+
+- Material Ui allow us to define a style theme for the app which all components inherit - it provides a default if none is declared. The useTheme hook gives components access to the theme.
+- Material UI provides the useMediaQuery hook to simplify the implementation of media queries, i.e. to query properties of the browser/device running the app. We are querying the browser's viewport dimensions, checking if they are in the medium (md) or smaller category - a mobile device.
+>>>const isMobile = useMediaQuery(theme.breakpoints.down("md"))
+- The Theme object includes helper methods that generate the query string necessary to express the media query, 
+
+>>>e.g. theme.breakpoints.down(). 
+
+- When the browser/device is a mobile type, the site header should render the drop-down menu; otherwise, the standard navigation links should render. 
+- The code for the drop-down menu is based on a solution from the documentation - see [here](https://material-ui.com/components/menus/)
+
+Commit this work:
+
+```
+$ git add -A
+$ git commit -m "Change site header."
+$ git push origin main
+```
+
+
+[newheader]: ./img/newheader.png
+[responsive]: ./img/responsive.png
+
+#### Step :  Exercise.
+
+ 
+TMDB has several **endpoints** for requesting data. We have already used four: Discover, Movies, Genres, and Reviews. The Movies endpoint has several query options; for example, 'upcoming' will returns a list of movies that will soon appear in cinemas - see more [here][endpoint]). According to the TMDB documentation, the upcoming movies endpoint URL is:
+
+>> https://api.themoviedb.org/3/movie/upcoming?api_key=...your-key...&language=en-US&page=1
+
+**You are required** to add a new page to the app which displays a list of upcoming movies. 
+The new page's URL should be '/movies/upcoming', and the page's layout should closely mirror that of the home page. The site header should include a navigation link to this page:
+
+
+
+![][upcoming]
+
+[Note, there may be some overlap between the movies in the upcoming list and the discover list (the home page). This overlap is normal for TMDB.]
+
+On completing the exercise, update the git repository:
+
+```
+$ git add -A
+$ git commit -m "Added Upcoming movies page."
+$ git push origin main
+```
+
+[endpoint]: https://developers.themoviedb.org/3/movies/get-upcoming
+[upcoming]: ./img/upcoming.png
+[discover]: ./img/discover.png
+[favorites]: ./img/favorites.png
+
+#### Step :  Advanced Custom hook.
+
+ 
+Filtering is a feature provided by our app. It has some associated state and could also be required by other types of data lists, e.g. list of actors; list of TV series. We could encapsulate this logic in a custom hook, thereby adhering to the DRY (Don't repeat yourself) software design principle. The hook needs to be generic - it should deal with different data types. The hook's inputs will include:
++ The set of filters to apply to the list. Each filter will declare:
+    1. The condition to determine the elements of the list to include in the result, e.g. movie belongs to a particular genre.
+    1. The initial value for the filter condition, e.g. All genres. The user can change this and it will cause the hook to re-execute.
+
+The hook returns:
++ The current filter values.
++ A setter method to change the filter values.
++ The function that a component calls when it wants to perform filtering. The hook constructs this function dynamically, and recomputes it every time the user changes a filter value, e.g. changes the genre selection to Crime.
+
+Create the file `src/hooks/useFiltering.ts`, and add the following code:
+~~~tsx
+import { useState } from "react";
+
+interface Filter {
+    name: string;
+    value: string;
+    condition: (item: any, value: string) => boolean;
+    }
+
+const useFiltering = ( filters: Filter[]) => {
+  const [filterValues, setFilterValues] = useState(() => {
+    const filterInitialValues = filters.map((f) => ({
+      name: f.name,
+      value: f.value,
+    }));
+    return filterInitialValues;
+  });
+
+  const filteringConditions = filters.map((f) => f.condition);
+  const filterFunction = (collection: any) =>
+    filteringConditions.reduce((data, conditionFn, index) => {
+      return data.filter((item: any) => {
+          return conditionFn(item, filterValues[index].value);
+      });
+    }, collection);
+
+  return {
+    filterValues,
+    setFilterValues,
+    filterFunction,
+  };
+};
+
+export default useFiltering;
+~~~
+We use the Array.reduce() higher-order function to iterate over a list of filtering conditions (e.g. movie titles with a particular substring). We use a condition to filter over a data array (e.g. array of movies). The reduce returns a function that a component can invoke with the starting data array.
+
+We will take this opportunity to refactor the filtering UI code before using the hook. The objective of the refactoring is to allow for other types of filtering in the future. Create the file `components/movieFilterUI/index.tsx` and add this code:
+~~~tsx
+import React, { useState } from "react";
+import FilterCard from "../filterMoviesCard";
+import Fab from "@mui/material/Fab";
+import Drawer from "@mui/material/Drawer";
+import { BaseMovieProps } from "../../types/interfaces";
+
+export const titleFilter = (movie: BaseMovieProps, value: string): boolean => {
+    return movie.title.toLowerCase().search(value.toLowerCase()) !== -1;
+};
+
+export const genreFilter = (movie: BaseMovieProps, value: string) => {
+    const genreId = Number(value);
+    const genreIds = movie.genre_ids;
+    return genreId > 0 && genreIds ? genreIds.includes(genreId) : true;
+};
+
+const styles = {
+    root: {
+        backgroundColor: "#bfbfbf",
+    },
+    fab: {
+        marginTop: 8,
+        position: "fixed",
+        top: 20,
+        right: 2,
+    },
+};
+
+interface MovieFilterUIProps {
+    onFilterValuesChange: (f: string, s: string) => void;
+    titleFilter: string;
+    genreFilter: string;
+}
+
+
+const MovieFilterUI: React.FC<MovieFilterUIProps> = ({ onFilterValuesChange, titleFilter, genreFilter }) => {
+    const [drawerOpen, setDrawerOpen] = useState(false);
+
+    return (
+        <>
+            <Fab
+                color="secondary"
+                variant="extended"
+                onClick={() => setDrawerOpen(true)}
+                sx={styles.fab}
+            >
+                Filter
+            </Fab>
+            <Drawer
+                anchor="left"
+                open={drawerOpen}
+                onClose={() => setDrawerOpen(false)}
+            >
+                <FilterCard
+                    onUserInput={onFilterValuesChange}
+                    titleFilter={titleFilter}
+                    genreFilter={genreFilter}
+                />
+            </Drawer>
+        </>
+    );
+};
+
+export default MovieFilterUI;
+~~~
+In `components/templateMovieListPage/index.tsx`, replace the entire content with the following - we are removing the filtering UI code from the template:
+~~~tsx
+import React from "react";
+import Header from "../headerMovieList";
+import Grid from "@mui/material/Grid";
+import MovieList from "../movieList";
+import {  MovieListPageTemplateProps} from "../../types/interfaces";
+
+const styles = {
+  root: { 
+    backgroundColor: "#bfbfbf",
+  }
+};
+
+const MovieListPageTemplate: React.FC<MovieListPageTemplateProps> = ({ movies, title, selectFavourite })=> {
+  return (
+    <Grid container sx={styles.root}>
+      <Grid item xs={12}>
+        <Header title={title} />
+      </Grid>
+      <Grid item container spacing={5}>
+        <MovieList
+          selectFavourite={selectFavourite}
+          movies={movies}
+        ></MovieList>
+      </Grid>
+    </Grid>
+  );
+}
+export default MovieListPageTemplate;
+~~~
+In `pages/homePage.tsx`, replace the entire content with the following:
+~~~tsx
+import React, { useState, useEffect } from "react";
+import PageTemplate from '../components/templateMovieListPage';
+import { BaseMovieProps } from "../types/interfaces";
+import { getMovies } from "../api/tmdb-api";
+import useFiltering from "../hooks/useFiltering";
+import MovieFilterUI, {
+  titleFilter,
+  genreFilter,
+} from "../components/movieFilterUI";
+
+const titleFiltering = {
+  name: "title",
+  value: "",
+  condition: titleFilter,
+};
+const genreFiltering = {
+  name: "genre",
+  value: "0",
+  condition: genreFilter,
+};
+
+const HomePage: React.FC = () => {
+  const [movies, setMovies] = useState<BaseMovieProps[]>([]);
+  const favourites = movies.filter(m => m.favourite)
+  const { filterValues, setFilterValues, filterFunction } = useFiltering(
+    [titleFiltering, genreFiltering]
+  );
+
+  localStorage.setItem('favourites', JSON.stringify(favourites))
+  // New function
+  const addToFavourites = (movieId: number) => {
+    const updatedMovies = movies.map((m: BaseMovieProps) =>
+      m.id === movieId ? { ...m, favourite: true } : m
+    );
+    setMovies(updatedMovies);
+  };
+
+  const changeFilterValues = (type: string, value: string) => {
+    const changedFilter = { name: type, value: value };
+    const updatedFilterSet =
+      type === "title"
+        ? [changedFilter, filterValues[1]]
+        : [filterValues[0], changedFilter];
+    setFilterValues(updatedFilterSet);
+  };
+
+  useEffect(() => {
+    getMovies().then(movies => {
+      setMovies(movies);
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  const displayedMovies = filterFunction(movies);
+  return (
+    <>
+      <PageTemplate
+        title='Discover Movies'
+        movies={displayedMovies}
+        selectFavourite={addToFavourites}
+      />
+      <MovieFilterUI
+        onFilterValuesChange={changeFilterValues}
+        titleFilter={filterValues[0].value}
+        genreFilter={filterValues[1].value}
+      />
+    </>
+  );
+};
+export default HomePage;
+~~~
+Now check that filtering is working on the home page.
+
+In `pages/favoriteMoviesPage.tsx`, replace the entire content with the following: 
+~~~tsx
+import React from "react";
+import PageTemplate from "../components/templateMovieListPage";
+import useFiltering from "../hooks/useFiltering";
+import MovieFilterUI, {
+  titleFilter,
+  genreFilter,
+} from "../components/movieFilterUI";
+
+const titleFiltering = {
+  name: "title",
+  value: "",
+  condition: titleFilter,
+};
+const genreFiltering = {
+  name: "genre",
+  value: "0",
+  condition: genreFilter,
+};
+
+const FavouriteMoviesPage: React.FC= () => {
+  const { filterValues, setFilterValues, filterFunction } = useFiltering(
+    [titleFiltering, genreFiltering]
+  );
+
+  const changeFilterValues = (type: string, value: string) => {
+    const changedFilter = { name: type, value: value };
+    const updatedFilterSet =
+      type === "title" ? [changedFilter, filterValues[1]] : [filterValues[0], changedFilter];
+    setFilterValues(updatedFilterSet);
+  };
+
+  const favouriteMovies = JSON.parse(localStorage.getItem("favourites") || '[]');
+
+  const displayedMovies = filterFunction(favouriteMovies);
+
+  const toDo = () => true;
+
+  return (
+    <>
+      <PageTemplate
+        title="Favourite Movies"
+        movies={displayedMovies}
+        selectFavourite={toDo}
+      />
+      <MovieFilterUI
+        onFilterValuesChange={changeFilterValues}
+        titleFilter={filterValues[0].value}
+        genreFilter={filterValues[1].value}
+      />
+    </>
+  );
+};
+
+export default FavouriteMoviesPage;
+~~~
+The home page and favourite movies page have identical filtering criteria, but this will change later.
+
+Select some favourites on the home page and navigate to the favourites page. Try filtering on the Favourites page. Navigating back to the home page will still remove all selected favourites - we will fix this later.
+
+Update the git repository as follows:
+
+```
+$ git add -A
+$ git commit -m "Refactor to allow for new filtering hook, and add the hook."
+$ git push origin main
+```
+## Topic :   React Performance and Caching
+
+  
+Data fetching, server state, & performance. 
+
+### Talk :  Patterns, Routing, and Performance.
+
+  
+ Server state caching.
+### Lab : Lab-Movie_App-Part4
+
+ 
+In this lab, we will complete the Movies Fan app.
+
+The only remaining feature is to enable the user to write their review of a favourite movie. Also, there are known bugs identified in the previous lab that we will fix, and we will improve the app's performance by caching the server state.
+
+The new React features used in this development iteration include:
+
+- The Render props pattern.
+- The Context API.
+- 3rd party hooks, e.g. useForm.
+
+[Note. in the previous lab, you developed an Upcoming movies page as an exercise. We will temporally break this feature as a result of refactoring done in this lab. However, the exercise at the end will allow you to get it working again.]
+ ]
+
+#### Step :  Developing a Movies Fan App.
+
+ 
+In this lab, we will complete the Movies Fan app.
+
+The only remaining feature is to enable the user to write their review of a favourite movie. Also, there are known bugs identified in the previous lab that we will fix, and we will improve the app's performance by caching the server state.
+
+The new React features used in this development iteration include:
+
+- The Render props pattern.
+- The Context API.
+- 3rd party hooks, e.g. useForm.
+
+[Note. in the previous lab, you developed an Upcoming movies page as an exercise. We will temporally break this feature as a result of refactoring done in this lab. However, the exercise at the end will allow you to get it working again.]
+ ]
+
+#### Step :  Server state Caching.
+
+ 
+Should each component that requires data from the backend/API be responsible for its data fetching?
+
++ Ideally, yes, but it should not call the API every time the component is remounted, particularly if the API data changes infrequently. 
++ No, if the component must share the data with other sibling components.
+
+Should we centralising an app's data management in a high-level component and use props to pass it to subordinates? 
+
++ Yes, but only when many components use the data - shared data. 
+
+The problem with re-requesting API data every time a component remounts can be solved by caching. When a component (re)mounts with caching enabled, it first checks the local cache for its API data. If the data is there, it uses it; otherwise, it makes an API call. The react-query library is an excellent implementation of this caching behaviour.
+
+In `src/index.tsx`, make the following changes:
+
+- Add some imports:
+~~~tsx
+import { QueryClientProvider, QueryClient } from "react-query";
+import { ReactQueryDevtools } from 'react-query/devtools';
+~~~
+
+- Immediately after the import statements, declare the query client (it will manage the cache in the browser):
+~~~tsx
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 360000,
+      refetchInterval: 360000, 
+      refetchOnWindowFocus: false
+    },
+  },
+});
+~~~
+[The above configuration will retain all data in the cache for 1 hour before it becomes invalidated.]
+
+- Update the App component as follows:
+~~~tsx
+const App = () => {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+         ..... as before ..... 
+      </BrowserRouter>
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
+  );
+};
+~~~
+We will also add a component to display a spinner when the app is waiting for data from TMDB. Create the file `src/components/spinner/index.tsx`:
+~~~tsx
+import React from 'react';
+import CircularProgress from '@mui/material/CircularProgress';
+
+const styles = {
+  root: {
+    display: 'flex',
+    justifyContent: "center",
+    '& > * + *': {
+      marginLeft: 2,
+    },
+  },
+};
+
+const CircularIndeterminate: React.FC = ()=> {
+
+    return (
+        <div style={styles.root}>
+            <CircularProgress />
+            <CircularProgress />
+        </div>
+    );
+}
+
+export default CircularIndeterminate;
+~~~
+Before using React-Query in our components, we will define interfaces for the movies and genres data that describe the "shape" of the data returned from the API .  In ``src/types/interfaces.ts`` , add the following two interface that describes the list of movies and genre data returned by the TMDB API:
+
+~~~tsx
+   .... as before .....
+   
+export interface GenreData {
+  genres: {
+    id: string;
+    name: string
+  }[];
+}
+
+export interface DiscoverMovies {
+  page: number;	
+  total_pages: number;
+  total_results: number;
+  results: BaseMovieProps[];
+}
+~~~
+
+
+
+We are now ready to use **react-query** in components that perform data fetching. We will temporarily break the favourite tagging feature in the process, but in the next section, we rectify the problem.
+
+In `src/pages/homePage.tsx`, completely replace the code with the following: 
+~~~tsx
+import React from "react";
+import PageTemplate from "../components/templateMovieListPage";
+import { getMovies } from "../api/tmdb-api";
+import useFiltering from "../hooks/useFiltering";
+import MovieFilterUI, {
+  titleFilter,
+  genreFilter,
+} from "../components/movieFilterUI";
+import { DiscoverMovies } from "../types/interfaces";
+import { useQuery } from "react-query";
+import Spinner from "../components/spinner";
+
+
+const titleFiltering = {
+  name: "title",
+  value: "",
+  condition: titleFilter,
+};
+const genreFiltering = {
+  name: "genre",
+  value: "0",
+  condition: genreFilter,
+};
+
+const HomePage: React.FC = () => {
+  const { data, error, isLoading, isError } = useQuery<DiscoverMovies, Error>("discover", getMovies);
+  const { filterValues, setFilterValues, filterFunction } = useFiltering(
+    [titleFiltering, genreFiltering]
+  );
+
+  if (isLoading) {
+    return <Spinner />;
+  }
+
+  if (isError) {
+    return <h1>{error.message}</h1>;
+  }
+
+
+  const changeFilterValues = (type: string, value: string) => {
+    const changedFilter = { name: type, value: value };
+    const updatedFilterSet =
+      type === "title"
+        ? [changedFilter, filterValues[1]]
+        : [filterValues[0], changedFilter];
+    setFilterValues(updatedFilterSet);
+  };
+
+  const movies = data ? data.results : [];
+  const displayedMovies = filterFunction(movies);
+
+  // Redundant, but necessary to avoid app crashing.
+  const favourites = movies.filter(m => m.favourite)
+  localStorage.setItem("favourites", JSON.stringify(favourites));
+  const addToFavourites = (movieId: number) => true;
+
+  return (
+    <>
+      <PageTemplate
+        title="Discover Movies"
+        movies={displayedMovies}
+        selectFavourite={addToFavourites}
+      />
+      <MovieFilterUI
+        onFilterValuesChange={changeFilterValues}
+        titleFilter={filterValues[0].value}
+        genreFilter={filterValues[1].value}
+      />
+    </>
+  );
+};
+export default HomePage;
+~~~
+[Note: We have temporarily broken the favourites feature; this is fixed in the next section.]
+
+The useQuery hook uses the second argument (getMovies) to perform the HTTP request; the first argument is the cache entry key. In `src/api/tmdb-api.ts`, change the getMovies function to the following (this was necessitated by the use of react-query) :
+~~~tsx
+export const getMovies = () => {
+  return fetch(
+    `https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US&include_adult=false&include_video=false&page=1`
+  ).then((response) => {
+    if (!response.ok)
+      throw new Error(`Unable to fetch movies. Response status: ${response.status}`);
+    return response.json();
+  })
+    .catch((error) => {
+      throw error
+    });
+};
+~~~
+
+Start the development server. Click the react-query icon at the bottom of the screen to open the DevTools provided by the library:
+
+![][icon]
+
+This allows us to see the state of the cache. Use the Close button to collapse the tool.
+
+![][cache]
+
+Open the browser's own DevTool and select the network tab. Perform the following sequence:
+
+1. Refresh the Home page in the browser - do not select any favourite.
+1. Click the Filter floating action button.
+1. Navigate to the Favourites page, using the site navigation links (header).
+1. Click the Filter floating action button again.
+1. Navigate back to the home page using the site header. 
+1. Click the Filter floating action button a third time.
+
+![][fresh]
+
+Notice the app did not make a new HTTP call to TMDB for the discover movies. React-query prevented this because it realized it already had the data in its cache, and the data was 'fresh' (up to date). However, it requested the list of genres several times, where once would have been sufficient. Let's fix this. 
+
+
+
+In `src/components/filterMoviesCard/index.tsx`, make the changes shown below:
+
+~~~tsx
+import React, { ChangeEvent } from "react";  // useState/useEffect redundant 
+import { FilterOption, GenreData } from "../../types/interfaces"; //include GenreData interface 
+..... other imports ......
+import { useQuery } from "react-query";
+import Spinner from '../spinner';
+
+...... other code .....
+
+const FilterMoviesCard: React.FC<FilterMoviesCardProps> = ({ titleFilter, genreFilter, onUserInput }) => {
+  const { data, error, isLoading, isError } = useQuery<GenreData, Error>("genres", getGenres);
+
+  if (isLoading) {
+    return <Spinner />;
+  }
+  if (isError) {
+    return <h1>{(error as Error).message}</h1>;
+  }
+  const genres = data?.genres || [];
+  if (genres[0].name !== "All") {
+    genres.unshift({ id: "0", name: "All" });
+  }
+
+  const handleChange = (e: SelectChangeEvent, type: FilterOption, value: string) => {
+    e.preventDefault()
+      onUserInput(type, value)
+  };
+
+  const handleTextChange = (e: ChangeEvent<HTMLInputElement>) => {
+    handleChange(e, "title", e.target.value)
+  }
+
+  const handleGenreChange = (e: SelectChangeEvent) => {
+    handleChange(e, "genre", e.target.value)
+  };
+
+  return (
+    .... as before .....
+  );
+}
+~~~
+In `src/api/tmdb-api.ts`, change the getGenres function to the following:
+~~~tsx
+export const getGenres = () => {
+  return fetch(
+    "https://api.themoviedb.org/3/genre/movie/list?api_key=" + import.meta.env.VITE_TMDB_KEY + "&language=en-US"
+  ).then( (response) => {
+    if (!response.ok)
+      throw new Error(`Unable to fetch genres. Response status: ${response.status}`);
+    return response.json();
+  })
+  .catch((error) => {
+    throw error
+ });
+};
+~~~
+Repeat the test sequence detailed above. This time the genre data is fetched only once from TMDB:
+
+![][once]
+
+The cache now has two entries, with the key names 'discover' and 'genres'.
+
+### Cache keys.
+So far, the cache entry keys have been static strings, e.g. discover. The react-query library also supports 'array keys'. We use these mainly when part of the key is variable, e.g. a movie id. In `src/pages/movieDetailsPage.tsx`, make the following changes:
+~~~tsx
+.... other imports ....
+// import useMovie from "../hooks/useMovie";   Redundant
+import { getMovie } from '../api/tmdb-api'
+import { useQuery } from "react-query";
+import Spinner from '../components/spinner';
+import { MovieDetailsProps } from "../types/interfaces";
+
+const MovieDetailsPage: React.FC= () => {
+  const { id } = useParams();
+  const { data: movie, error, isLoading, isError } = useQuery<MovieDetailsProps, Error>(
+    ["movie", id],
+    ()=> getMovie(id||"")
+  );
+
+  if (isLoading) {
+    return <Spinner />;
+  }
+
+  if (isError) {
+    return <h1>{(error as Error).message}</h1>;
+  }
+
+  return (
+    .... as before ....
+  );
+};
+
+export default MovieDetailsPage;
+~~~
+Here the cache entry key is a serializable array - ["movie", id]. In `src/api/tmdb-api.ts`, change the getMovie function to the following:
+~~~ts
+export const getMovie = (id: string) => {
+  return fetch(
+    `https://api.themoviedb.org/3/movie/${id}?api_key=${import.meta.env.VITE_TMDB_KEY}`
+  ).then((response) => {
+    if (!response.ok) {
+      throw new Error(`Failed to get movie data. Response status: ${response.status}`);
+    }
+    return response.json();
+  })
+  .catch((error) => {
+    throw error
+ });
+};
+~~~
+We will also use react-query for retrieving a movie's images. In `src/components/templateMoviePage/index.tsx`, make the following changes: 
+~~~tsx
+import React from "react";  // useState/useEffect redundant 
+.... other imports ....
+import { useQuery } from "react-query";
+import Spinner from '../spinner';
+
+..... other code .....
+ 
+const TemplateMoviePage: React.FC<TemplateMoviePageProps> = ({movie, children}) => {
+    const { data, error, isLoading, isError } = useQuery<MovieImage[], Error>(
+        ["images", movie.id],
+        () => getMovieImages(movie.id)
+    );
+
+    if (isLoading) {
+        return <Spinner />;
+    }
+
+    if (isError) {
+        return <h1>{(error
+
+        ).message}</h1>;
+    }
+
+    const images = data as MovieImage[];
+
+    return (
+    ... as before ....
+  );
+};
+
+export default TemplateMoviePage;
+~~~
+In `src/api/tmdb-api.ts`, change the getMovieImages function to the following:
+~~~tsx
+export const getMovieImages = (id: string | number) => {
+  return fetch(
+    `https://api.themoviedb.org/3/movie/${id}/images?api_key=${import.meta.env.VITE_TMDB_KEY}`
+  ).then((response) => {
+    if (!response.ok) {
+      throw new Error("failed to fetch images");
+    }
+    return response.json();
+  }).then((json) => json.posters)
+    .catch((error) => {
+      throw error
+    });
+};
+~~~
+In the browser, perform this sequence:
+
+1. Refresh the home page.
+1. Click the first movie's 'More info' button.
+1. Navigate back to the home page (using the site header).
+1. Click the second movie's 'More Info' button.
+
+The cache's state should look similar to the following:
+
+![][pkey]
+
+Update the project git repository:
+~~~
+$ git add -A
+$ git commit -m "Using react-query to manage the browser-based cache."
+$ git push origin main
+~~~
+[icon]: ./img/icon.png
+[cache]: ./img/cache.png
+[fresh]: ./img/fresh.png
+[once]: ./img/once.png
+[pkey]: ./img/pkey.png
+
+#### Step :  Global Data and Contexts.
+
+ 
+A common feature of React apps is where many components need to access the same piece of data. For example, many components may need to know the identity of the currently authenticated user. However, this situation can lead to 'prop drilling', where components in the middle of the component hierarchy must pass props from a high-level component to low-level components - the middle-tier components may not use the props themselves. React provides __Contexts__ to solve this problem - it is an implementation of the generic Provider design pattern. We will use a Context to store information about movies tagged as favourites. The Home page and Favourites page will use the Context as both use this data.
+
+Create the file `src/contexts/moviesContext.tsx` and add this code:
+
+```tsx
+import React, { useState, useCallback } from "react";
+import { BaseMovieProps } from "../types/interfaces";
+
+
+interface MovieContextInterface {
+    favourites: number[];
+    addToFavourites: ((movie: BaseMovieProps) => void);
+    removeFromFavourites: ((movie: BaseMovieProps) => void);
+}
+const initialContextState: MovieContextInterface = {
+    favourites: [],
+    addToFavourites: () => {},
+    removeFromFavourites: () => {}
+};
+
+export const MoviesContext = React.createContext<MovieContextInterface>(initialContextState);
+
+const MoviesContextProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
+    const [favourites, setFavourites] = useState<number[]>([]);
+
+    const addToFavourites = useCallback((movie: BaseMovieProps) => {
+        setFavourites((prevFavourites) => {
+            if (!prevFavourites.includes(movie.id)) {
+                return [...prevFavourites, movie.id];
+            }
+            return prevFavourites;
+        });
+    }, []);
+
+    const removeFromFavourites = useCallback((movie: BaseMovieProps) => {
+        setFavourites((prevFavourites) => prevFavourites.filter((mId) => mId !== movie.id));
+    }, []);
+
+    return (
+        <MoviesContext.Provider
+            value={{
+                favourites,
+                addToFavourites,
+                removeFromFavourites,
+            }}
+        >
+            {children}
+        </MoviesContext.Provider>
+    );
+};
+
+export default MoviesContextProvider;
+```
+Note, we are storing only the selected movie's id in the favourites array above. Also, we include the context interface,combined with the initial state,  in the same file. 
+
+The MoviesContextProvider component is not exceptional - it simply manages the list of favourites. However, the intention is to compose it with other components using the Container pattern - _props.children_. A distinguishing feature of MoviesContextProvider is it also plays a __context provider__ due to the _MoviesContext.Provider_ wrapper. This role will allow other components it is composed with to access to the context, i.e. access the favourite movies state (and the two functions that manipulate it). The net result is we avoid prop drilling.
+
+In `src/index.tsx`, make these changes:
+
+- add an import:
+
+```tsx
+import MoviesContextProvider from "./contexts/moviesContext";
+```
+
+- modify the App component:
+
+```tsx
+const App = () => {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <SiteHeader />
+          <MoviesContextProvider>
+            <Routes>
+               .....code as before .....
+            </Routes>
+        </MoviesContextProvider>
+      </BrowserRouter>
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
+  );
+};
+```
+The App component _composes_ the MoviesContextProvider with the rest of our components/pages. All components/pages can access the _values_ in the context, subject to a small code addition. For example, the Home page and Favourites page will be able to access the favourites list - previously stored in the browser's local storage. In `components/movieCard/index.tsx`, update the contents with the following:
+~~~tsx
+import React, {MouseEvent, useContext} from "react";
+..... other imports .....
+import { MoviesContext } from "../../contexts/moviesContext";
+
+..... other (styling) code .....
+
+interface MovieCardProps { //Removed selectFavourite property from interface
+  movie: BaseMovieProps;
+}
+
+const MovieCard: React.FC<MovieCardProps> = ({movie}) => {
+  const { favourites, addToFavourites } = useContext(MoviesContext);//NEW
+
+const isFavourite = favourites.find((id) => id === movie.id)? true : false;//NEW
+ 
+  const handleAddToFavourite = (e: MouseEvent<HTMLButtonElement>) => {//NEW
+    e.preventDefault();
+    addToFavourites(movie);
+  };
+
+  return (
+      <Card sx={styles.card}>
+      <CardHeader
+        avatar={
+          isFavourite ? (   //CHANGED
+            <Avatar sx={styles.avatar}>
+              <FavoriteIcon />
+            </Avatar>
+          ) : null
+        }
+        title={
+          <Typography variant="h5" component="p">
+            {movie.title}{" "}
+          </Typography>
+        }
+      />
+      ... as before
+  );
+}
+
+export default MovieCard;
+~~~
+The useContext hook allows a component to _consume_ the values exposed by a context provider, e.g. the addToFavorites function and favourites array. 
+
+The Favourite movies page can use the favourite movie ids to fetch the movie details from TMDB - alternatively, we could have excavated the movie details  from the cache, but this is somewhat unorthodox. React-query supports __parallel queries__, which we can use here. In `pages/favoriteMoviesPage.tsx`, completely replace the code with the following:
+```tsx
+import React, { useContext } from "react"
+import PageTemplate from "../components/templateMovieListPage";
+import { MoviesContext } from "../contexts/moviesContext";
+import { useQueries } from "react-query";
+import { getMovie } from "../api/tmdb-api";
+import Spinner from "../components/spinner";
+import useFiltering from "../hooks/useFiltering";
+import MovieFilterUI, {
+  titleFilter,
+  genreFilter,
+} from "../components/movieFilterUI";
+
+const titleFiltering = {
+  name: "title",
+  value: "",
+  condition: titleFilter,
+};
+const genreFiltering = {
+  name: "genre",
+  value: "0",
+  condition: genreFilter,
+};
+
+const FavouriteMoviesPage: React.FC = () => {
+  const { favourites: movieIds } = useContext(MoviesContext);
+  const { filterValues, setFilterValues, filterFunction } = useFiltering(
+    [titleFiltering, genreFiltering]
+  );
+
+  // Create an array of queries and run them in parallel.
+  const favouriteMovieQueries = useQueries(
+    movieIds.map((movieId) => {
+      return {
+        queryKey: ["movie", movieId],
+        queryFn: () => getMovie(movieId.toString()),
+      };
+    })
+  );
+
+  // Check if any of the parallel queries is still loading.
+  const isLoading = favouriteMovieQueries.find((m) => m.isLoading === true);
+
+  if (isLoading) {
+    return <Spinner />;
+  }
+
+  const allFavourites = favouriteMovieQueries.map((q) => q.data);
+  const displayedMovies = allFavourites
+    ? filterFunction(allFavourites)
+    : [];
+
+  const changeFilterValues = (type: string, value: string) => {
+    const changedFilter = { name: type, value: value };
+    const updatedFilterSet =
+      type === "title" ? [changedFilter, filterValues[1]] : [filterValues[0], changedFilter];
+    setFilterValues(updatedFilterSet);
+  };
+
+  const toDo = () => true;
+
+  return (
+    <>
+      <PageTemplate
+        title="Favourite Movies"
+        movies={displayedMovies}
+        selectFavourite={toDo}
+      />
+      <MovieFilterUI
+        onFilterValuesChange={changeFilterValues}
+        titleFilter={filterValues[0].value}
+        genreFilter={filterValues[1].value}
+      />
+    </>
+  );
+};
+
+export default FavouriteMoviesPage;
+```
+Note, TMDB returns a different object structure for a movie when asked for a list of movies rather than details of a particular movie. For this reason, the genre filtering condition is different for the Favourites page as opposed to the home page.
+
+In the browser, try the following sequence:
+
+1. Go to the home page.
+1. Click the 'Favorites' icon of the first three movies - they each have a favourite icon coloured red in the title.
+1. Navigate to the Favorites page. It's showing the tagged movies.
+1. Navigate back to the Home page. The three movies are still tagged as favourites. 
+
+Update the git repository as follows:
+
+```
+$ git add -A
+$ git commit -m "Refactor: Favourite movie list now stored in a context."
+$ git push origin main
+
+```
+
+
+#### Step :  Bug Fix.
+
+ 
+Currently, the favourite movies page has a bug: the movies listed on the page have a 'Add to Favourites' icon, which is illogical. We will replace it with two options:
+
+- Remove from favourites.
+- Write a review of the movie.
+
+![][favcard]
+
+We want a movie card's icons (and their roles) to be conditional on the page that uses them. To meet this requirement, we must refactor the existing code. The _Render props_ pattern ([read more][renderprop]) will provide the design for the refactoring.
+
+> > "A component with a render prop uses it to produce a React element  instead of implementing the rendering logic itself."
+
+In our case, the render prop function will return the appropriate type of icon(s).
+
+Recall, in `contexts/moviesContext.tsx`, we already added a function for removing favourites. Create the folder `src/components/cardIcons` and in it create three files:
+
+- `addToFavourites.tsx`, with the following code:
+
+```tsx
+import React, {MouseEvent, useContext} from "react";
+import { MoviesContext } from "../../contexts/moviesContext";
+import IconButton from "@mui/material/IconButton";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import {BaseMovieProps} from "../../types/interfaces"
+
+const AddToFavouritesIcon: React.FC<BaseMovieProps> = (movie) => {
+  const context = useContext(MoviesContext);
+
+  const onUserSelect = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    context.addToFavourites(movie);
+  };
+  return (
+    <IconButton aria-label="add to favorites" onClick={onUserSelect}>
+      <FavoriteIcon color="primary" fontSize="large" />
+    </IconButton>
+  );
+};
+
+export default AddToFavouritesIcon;
+```
+
+- `writeReview.tsx` (it's only a placeholder for now):
+
+```tsx
+import React from "react";
+import RateReviewIcon from "@mui/icons-material/RateReview";
+import {BaseMovieProps} from "../../types/interfaces"
+
+const WriteReviewIcon:React.FC<BaseMovieProps> = (movie) => {
+  return (
+    <RateReviewIcon color="primary" fontSize="large" />
+  );
+};
+
+export default  WriteReviewIcon;
+```
+
+- and `removeFromFavourites.tsx`:
+
+```tsx
+import React, { MouseEvent, useContext } from "react";
+import IconButton from "@mui/material/IconButton";
+import DeleteIcon from "@mui/icons-material/Delete";
+import { MoviesContext } from "../../contexts/moviesContext";
+import {BaseMovieProps} from "../../types/interfaces";
+
+const RemoveFromFavouritesIcon: React.FC<BaseMovieProps> = (movie) => {
+  const context = useContext(MoviesContext);
+
+  const onUserRequest = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    context.removeFromFavourites(movie);
+  };
+
+return (
+  <IconButton
+    aria-label="remove from favorites"
+    onClick={onUserRequest}
+  >
+    <DeleteIcon color="primary" fontSize="large" />
+  </IconButton>
+);
+};
+
+export default RemoveFromFavouritesIcon;
+```
+In `pages/homePage.tsx`, make the following changes:
+
+```tsx
+..... other imports ......
+import AddToFavouritesIcon from '../components/cardIcons/addToFavourites'
+
+const HomePage: React.FC = () => {
+   ..... code as before ......
+
+  // The following three lines can be deleted
+  // const favourites = movies.filter((m) => m.favorite);
+  // localStorage.setItem("favourites", JSON.stringify(favourites));
+  // const addToFavourites = (movieId) => true;
+
+     return (
+    <>
+      <PageTemplate
+        title="Discover Movies"
+        movies={displayedMovies}
+        action={(movie: BaseMovieProps) => {
+          return <AddToFavouritesIcon {...movie} />
+        }}
+      />
+      <MovieFilterUI
+        onFilterValuesChange={changeFilterValues}
+        titleFilter={filterValues[0].value}
+        genreFilter={filterValues[1].value}
+      />
+    </>
+  );
+};
+export default HomePage;
+```
+The render prop in the above code appears in the lines:
+```tsx
+    action={(movie: ListedMovie) => {
+        return <AddToFavouritesIcon {...movie} />
+     }}
+```
+The render prop's function returns the icon to display in movie cards on the home page. We must pass the render prop down the component hierarchy to the movie card component, which ultimately will invoke it. In `types/interfaces.ts`:
+
+- change the MovieListPageTemplateProps interface declaration line, as follows:
+
+```tsx
+export interface BaseMovieListProps {
+  movies: BaseMovieProps[];
+  action: (m: BaseMovieProps) => React.ReactNode;
+}
+```
+
+In `components/templateMovieListPage/index.tsx`:
+
+- modify the   destructured properties and the return statement's `MovieList` component use to the following:
+
+```tsx
+....imports and code as before....
+
+const MovieListPageTemplate: React.FC<MovieListPageTemplateProps> = ({ movies, title, action })=> {
+	.... code as before
+	<MovieList action={action} movies={movies}></MovieList>
+
+	.... code as before
+
+```
++ Similarly, in `components/movieList/index.tsx`, modify the  destructured properties and the return statement's `Movie` component use to the following:
+
+```tsx
+.... imports as before ....
+
+const MovieList: React.FC<BaseMovieListProps> = ({movies, action}) => {
+    
+    	.... code as before ....
+        
+			<Movie key={m.id} movie={m} action={action}/>
+
+	.... code as before  ....
+    
+```
+In `components/movieCard/index.tsx`, update the component code as follows:
+
++ Add the following interface and change the function signature to:
+
+
+
+~~~tsx
+... imports and styling...
+
+interface MovieCardProps {
+  movie: BaseMovieProps;
+  action: (m: BaseMovieProps) => React.ReactNode;
+}
+
+const MovieCard: React.FC<MovieCardProps> = ({movie, action}) => {
+
+...code as before...
+~~~
+
++ replace the lines:
+~~~tsx
+    <IconButton aria-label="add to favourites" onClick={handleAddToFavourite}>
+        <FavoriteIcon color="primary" fontSize="large" />
+    </IconButton>
+~~~
+with:
+~~~ts
+    {action(movie)}
+~~~
++ remove the line:
+~~~
+import IconButton from "@mui/material/IconButton";
+~~~
++ remove the lines:
+~~~tsx
+const handleAddToFavourite = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    addToFavourites(movie);
+  };
+~~~
+
+The above changes substitute the hard-coded Favorite icon and its associated click event handler with the render prop function call, i.e.
+```
+    {action(movie)}
+```
+The add to favourites feature is now working on the Home page; however, the Favorites page is broken (again!). To fix it, in `pages/favouriteMoviesPage.tsx`:
+
++ add two imports:
+~~~tsx
+import RemoveFromFavourites from "../components/cardIcons/removeFromFavourites";
+import WriteReview from "../components/cardIcons/writeReview";
+~~~
++ remove the toDo function declaration.
++ replace the PageTemplate component with:
+~~~tsx
+   <PageTemplate
+        title="Favourite Movies"
+        movies={displayedMovies}
+        action={(movie) => {
+          return (
+            <>
+              <RemoveFromFavourites {...movie} />
+              <WriteReview {...movie} />
+            </>
+          );
+        }}
+      />
+~~~
+The above code means that movie cards on the Favourite movies page should have two action icons: 'Remove from the Favourites' and 'Write a Review'. In the browser, try adding and removing favourites.
+
+Update the git repository as follows:
+
+```
+$ git add -A
+$ git commit -m "Bug Fix - make action icons on movie card configurable."
+$ git push origin main
+```
+
+[renderprop]: https://react.dev/reference/react/cloneElement#passing-data-with-a-render-prop
+[reviewbutton]: ./img/reviewbutton.png
+[favcard]: ./img/favcard.png
+
+#### Step :  Add a Movie Review.
+
+ 
+On the favourite movies page, clicking a movie's RateReview icon should allows the user write a review. We will store reviews in the moviesContext as a temporary solution but in a production app, it would be sent to the API for storage in a database. 
+
+In `components/cardIcons/writeReview.tsx`, replace the entire content with:
+~~~tsx
+import React from "react";
+import RateReviewIcon from "@mui/icons-material/RateReview";
+import {BaseMovieProps} from "../../types/interfaces"
+import { Link } from "react-router-dom";
+
+const WriteReviewIcon:React.FC<BaseMovieProps> = (movie) => {
+  return (
+    <Link
+    to={'/reviews/form'}
+    state={{
+        movieId: movie.id,
+      }}
+  >
+    <RateReviewIcon color="primary" fontSize="large" />
+  </Link>
+  );
+};
+
+export default  WriteReviewIcon;
+~~~
+The icon/Link routes the app to the URL '/reviews/form' and includes the movie's Id as additional data/state. Create the file `components/reviewForm/index.tsx`, and add the following temporary code:
+~~~tsx
+import React from "react";
+import { BaseMovieProps } from "../../types/interfaces";
+
+const ReviewForm: React.FC<BaseMovieProps> = (movie) => {
+    return (
+        <h3>Placeholder for web form</h3>
+    );
+};
+
+export default ReviewForm;
+~~~
+Create the file `src/pages/addMovieReviewPage.tsx`, and add this code:
+~~~tsx
+import React from "react";
+import PageTemplate from "../components/templateMoviePage";
+import ReviewForm from "../components/reviewForm";
+import { useLocation } from "react-router-dom";
+import { useQuery } from "react-query";
+import { getMovie } from "../api/tmdb-api";
+import Spinner from "../components/spinner";
+import { BaseMovieProps, MovieDetailsProps } from "../types/interfaces";
+
+const WriteReviewPage: React.FC = () => {
+    const location = useLocation()
+    const { movieId } = location.state;
+    const { data: movie, error, isLoading, isError } = useQuery<MovieDetailsProps, Error>(
+        ["movie", movieId],
+        () => getMovie(movieId)
+    );
+
+    if (isLoading) {
+        return <Spinner />;
+    }
+
+    if (isError) {
+        return <h1>{error.message}</h1>;
+    }
+    return (
+        <>
+            {movie ? (
+                    <PageTemplate movie={movie}>
+                        <ReviewForm {...movie} />
+                    </PageTemplate>
+            ) : (
+                <p>Waiting for movie review details</p>
+            )}
+        </>
+    );
+};
+
+export default WriteReviewPage;
+~~~
+Update the routing configuration in `src/index.tsx`, as follows:
+
++ add an import at the top:
+~~~js
+import AddMovieReviewPage from './pages/addMovieReviewPage';
+~~~
+
++ add a new route to the list:
+~~~js
+    <Routes>
+        <Route path="/reviews/form" element={<AddMovieReviewPage/>} />
+        . . . . other routes . . . . 
+    </Routes>
+~~~
+In the browser, go to the favourite movies page and click the RateReview icon of a movie. It should display our new page:
+
+<img src="./img/image-20240617124352099.png" alt="image-20240617124352099" style="zoom: 50%;" />
+
+### Web forms in React.
+
+Web forms tend to have a standard feature set, e.g. field validation and error messages, submit action, reset fields, etc. We will use a 3rd party module to simplify implementing these requirements - the react-hook-form library ([read more][useform]). [See react-hook-form in `package.json`.] 
+
+In ``/types/interfaces.ts``, add the following interface definition that describes the shape of a movie review:
+
+~~~tsx
+  export interface Review {
+    author: string,
+    content: string,
+    agree: boolean,
+    rating: number,
+    movieId: number,
+  }
+~~~
+
+
+
+In `components/reviewForm` make the following changes:
+- Create the file `ratingCategories.ts`:
+~~~ts
+const ratings = [
+  {
+    value: 5,
+    label: "Excellent",
+  },
+  {
+    value: 4,
+    label: "Good",
+  },
+  {
+    value: 3,
+    label: "Average",
+  },
+  {
+    value: 2,
+    label: "Poor",
+  },
+  {
+    value: 0,
+    label: "Terrible",
+  },
+];
+  export default ratings
+~~~
+- Create the file `styles.ts`:
+~~~js
+const styles =  {
+  root: {
+    marginTop: 2,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "left",
+  },
+  form: {
+    width: "100%",
+    "& > * ": {
+      marginTop: 2,
+    },
+  },
+  textField: {
+    width: "40ch",
+  },
+  submit: {
+    marginRight: 2,
+  },
+  snack: {
+    width: "50%",
+    "& > * ": {
+      width: "100%",
+    },
+  },
+};
+export default styles
+~~~
+- Replace the content of `index.tsx` with the following:,
+~~~js
+import React, { useContext, useState, ChangeEvent } from "react";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import MenuItem from "@mui/material/MenuItem";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import { useForm, Controller, SubmitHandler } from "react-hook-form";
+import { MoviesContext } from "../../contexts/moviesContext";
+import { useNavigate } from "react-router-dom";
+import styles from "./styles";
+import ratings from "./ratingCategories";
+import { BaseMovieProps, Review } from "../../types/interfaces";
+
+
+const ReviewForm: React.FC<BaseMovieProps> = (movie) => {
+    const defaultValues = {
+        defaultValues: {
+          author: "",
+          review: "",
+          agree: false,
+          rating: 3,
+          movieId: 0,
+        }
+      };
+    
+      const {
+        control,
+        formState: { errors },
+        handleSubmit,
+        reset,
+      } = useForm<Review>(defaultValues);
+    
+      const navigate = useNavigate();
+      const context = useContext(MoviesContext);
+      const [rating, setRating] = useState(3);
+    
+    
+      const handleRatingChange = (event: ChangeEvent<HTMLInputElement>) => {
+        setRating(Number(event.target.value));
+      };
+    
+      const onSubmit: SubmitHandler<Review> = (review) => {
+        review.movieId = movie.id;
+        review.rating = rating;
+        console.log(review);
+      };
+    
+      return (
+        <Box component="div" sx={styles.root}>
+          <Typography component="h2" variant="h3">
+            Write a review
+          </Typography>
+          <form style={styles.form} onSubmit={handleSubmit(onSubmit)} noValidate>
+            <Controller
+              name="author"
+              control={control}
+              rules={{ required: "Name is required" }}
+              defaultValue=""
+              render={({ field: { onChange, value } }) => (
+                <TextField
+                  sx={{ width: "40ch" }}
+                  variant="outlined"
+                  margin="normal"
+                  required
+                  onChange={onChange}
+                  value={value}
+                  id="author"
+                  label="Author's name"
+                  autoFocus
+                />
+              )}
+            />
+            {errors.author && (
+              <Typography variant="h6" component="p">
+                {errors.author.message}
+              </Typography>
+            )}
+            <Controller
+              name="content"
+              control={control}
+              rules={{
+                required: "Review cannot be empty.",
+                minLength: { value: 10, message: "Review is too short" },
+              }}
+              defaultValue=""
+              render={({ field: { onChange, value } }) => (
+                <TextField
+                  variant="outlined"
+                  margin="normal"
+                  required
+                  fullWidth
+                  value={value}
+                  onChange={onChange}
+                  label="Review text"
+                  id="review"
+                  multiline
+                  minRows={10}
+                />
+              )}
+            />
+            {errors.content && (
+              <Typography variant="h6" component="p">
+                {errors.content.message}
+              </Typography>
+            )}
+    
+            <Controller
+              control={control}
+              name="rating"
+              render={({ field }) => (
+                <TextField
+                  {...field}
+                  id="select-rating"
+                  select
+                  variant="outlined"
+                  label="Rating Select"
+                  value={rating}
+                  onChange={handleRatingChange}
+                  helperText="Don't forget your rating"
+                >
+                  {ratings.map((option) => (
+                    <MenuItem key={option.value} value={option.value}>
+                      {option.label}
+                    </MenuItem>
+                  ))}
+                </TextField>
+              )}
+            />
+    
+            <Box >
+              <Button
+                type="submit"
+                variant="contained"
+                color="primary"
+                sx={styles.submit}
+              >
+                Submit
+              </Button>
+              <Button
+                type="reset"
+                variant="contained"
+                color="secondary"
+                sx={styles.submit}
+                onClick={() => {
+                  reset({
+                    author: "",
+                    content: "",
+                  });
+                }}
+              >
+                Reset
+              </Button>
+            </Box>
+          </form>
+        </Box>
+      );
+    };
+    
+
+export default ReviewForm;
+~~~
+
+The useForm hook in the above code is the cornerstone. The properties of the object it returns connect the hook's form processing logic to our web form. The properties include:
+
++ handleSubmit - a function to connect our custom form submit event handler to react-hook-form.
++ reset - a function to reset the form fields.
++ errors - an object populated with field validation error messages computed from the validation rules declared in the Controller components.
++ control - a function for controlling a field on the web fork.
+
+The react-hook-form library also provides the Controller component for managing a form field. It declares the field's validation criteria (rules), name, and how it should render (render). For example, the code for the review content field is as follows:
+~~~js
+<Controller
+    name="content"
+    control={control}
+    rules={{
+        required: "Review cannot be empty.",
+        minLength: { value: 10, message: "Review is too short" },
+    }}
+    defaultValue=""
+    render={({ field: { onChange, value } }) => (
+        <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            value={value}
+            onChange={onChange}
+            label="Review text"
+            id="review"
+            multiline
+            minRows={10}
+        />
+    )}
+/>
+~~~
+The render prop above is an example of the Render prop pattern. The callback assigned to it is invoked by the Controller, passing it the current value of the field and a default onChange event handler. The validation rules object above uses prescribed keys (e.g. required, minlength, min, max). The hook enforces these rules, and it records any violations in an errors object, which we use to control the display of error messages, for example:
+~~~js
+        {errors.review && (
+          <Typography variant="h6" component="p">
+            {errors.review.message}
+          </Typography>
+        )}
+~~~
+The error messages appear under the offending field, as shown below:
+
+![][errorform]
+
+### Storing the reviews.
+As an interim solution, we will store reviews in the MoviesContext.
+
+In `contexts/moviesContext.tsx`, make the changes shown below:
+~~~tsx
+import React, { useState, useCallback } from "react";
+import { BaseMovieProps, Review } from "../types/interfaces";
+
+interface MovieContextInterface {
+    favourites: number[];
+    addToFavourites: ((movie: BaseMovieProps) => void);
+    removeFromFavourites: ((movie: BaseMovieProps) => void);
+    addReview: ((movie: BaseMovieProps, review: Review) => void);  // NEW
+}
+const initialContextState: MovieContextInterface = {
+    favourites: [],
+    addToFavourites: () => {},
+    removeFromFavourites: () => {},
+    addReview: (movie, review) => { movie.id, review},  // NEW
+};
+..... other code as before .....
+
+const MoviesContextProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
+    const [myReviews, setMyReviews] = useState<Review[]>( [] )  // NEW
+
+  ..... other code as before  .....
+
+    const addReview = (movie:BaseMovieProps, review: Review) => {   // NEW
+        setMyReviews( {...myReviews, [movie.id]: review } )
+      };
+
+ return (
+        <MoviesContext.Provider
+            value={{
+                favourites,
+                addToFavourites,
+                removeFromFavourites,
+                addReview,    // NEW
+            }}
+        >
+            {children}
+        </MoviesContext.Provider>
+    );
+
+export default MoviesContextProvider;
+~~~
+In `components/reviewForm/index.tsx`, update the onSubmit function:
+~~~js
+     const onSubmit: SubmitHandler<Review> = (review) => {
+        review.movieId = movie.id;
+        review.rating = rating;
+        context.addReview(movie, review);
+        
+      };
+    
+~~~
+In the browser, try adding a review for a favourite movie. 
+
+It works, but a better user experience would be to acknowledge the review submission. We will use the Material Snackbar component to serve this purpose.
+
+![][snackbar]
+
+In `components/reviewForm/index.tsx`:
+- Add two new imports:
+~~~js
+import Snackbar from "@mui/material/Snackbar";
+import Alert from "@mui/material/Alert";
+~~~
+- Add another state variable declaration (after rating):
+~~~js
+  const [open, setOpen] = useState(false);  //NEW
+~~~
+- Add an event handler (before onSubmit):
+~~~js
+  const handleSnackClose = () => {
+    setOpen(false);
+    navigate("/movies/favourites");
+  };
+
+~~~
+- change the onSubmit event handler:
+~~~js
+     const onSubmit: SubmitHandler<Review> = (review) => {
+        review.movieId = movie.id;
+        review.rating = rating;
+        context.addReview(movie, review);
+        setOpen(true); // NEW
+        // console.log(review);
+      };
+
+~~~
+- Add the `Snackbar` component, just before the `form` component:
+~~~tsx
+      <Snackbar
+        sx={styles.snack}
+        anchorOrigin={{ vertical: "top", horizontal: "right" }}
+        open={open}
+         onClose={handleSnackClose}
+      >
+        <Alert
+          severity="success"
+          variant="filled"
+          onClose={handleSnackClose}
+        >
+          <Typography variant="h4">
+            Thank you for submitting a review
+          </Typography>
+        </Alert>
+      </Snackbar>
+~~~
+Now when the user clicks the submit button, the snackbar acknowledgement displays. Clicking its close icon will redirect the browser back to the favourites page. 
+
+Update the git repository as follows:
+~~~
+$ git add -A
+$ git commit -m "Add new review support."
+$ git push origin main
+~~~
+
+[reviewform]: ./img/reviewForm.png
+[useform]: https://react-hook-form.com/
+[errorform]: ./img/errorform.png
+[snackbar]: ./img/snackbar.png
+
+#### Step :  Update Storybook.
+
+ 
+The storybook stories we wrote in part 1 of this series no longer work due to refactoring and enhancements made to the components in subsequent labs. Delete the `src/stories` folder, download [this archive][stories], unzip it and copy the new `stories` folder into the `src folder. The critical differences in the updated story implementations are as follows:
+
+1. Sometimes, a component expects/requires a particular component type to be above it in the component hierarchy. In Storybook, we need to *add a Decorator* to the story to satisfy this requirement. Decorators wrap a story's component inside another component. The most common wrappers are Contexts and Routers.  
+1. Any component that uses the Link component needs to be wrapped inside a Router component. The BrowserRouter component serves this purpose in the app. In Storybook, we can use MemoryRouter, which is more lightweight.
+1. We also use the decorator for components that require the MoviesContext provider to be in the component hierarchy. Ditto for components that use the QueryClient provider.
+
+For example, the stories for the MovieDetails component need the MemoryRouter and MoviesContextProvider as decorators:
+
+~~~tsx
+const meta = {
+    title: "Movie Details Page/MovieDetails",
+    component: MovieDetails,
+    decorators: [
+        (Story) => <MemoryRouter initialEntries={["/"]}>{Story()}</MemoryRouter>,
+        (Story) => <MoviesContextProvider>{Story()}</MoviesContextProvider>,
+      ],
+} satisfies Meta<typeof MovieDetails>;
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+export const Basic: Story = {
+    args: SampleMovie
+};
+Basic.storyName = "Default";
+~~~
+
+Start the Storybook server:
+~~~
+$ npm run storybook
+~~~
+In the storybook UI test all the stories. Examine the story implementations to confirm your understanding of the changes made.
+
+Commit this work:
+~~~
+$ git add -A
+$ git commit -m "Fix broken stories in Storybook."
+$ git push origin main
+~~~
+
+[stories]: ./archives/stories.zip
+
+#### Step :  Exercises.
+
+ ## Exercise 1.
+
+The Upcoming movies page you developed in the previous lab no longer works due to the refactoring we carried out. Make the necessary adjustments to your code to get it working again.
+
+On completion, update your repository:
+~~~
+$ git add -A
+$ git commit -m "Fix upcoming movies page."
+$ git push origin main
+~~~
+## Exercise 2.
+
+Suppose we want the movies on the Upcoming movies page to have a different action icon(s), as shown below:
+
+![][buttonw]
+
+The icon is called PlaylistAdd: 
+
+![][playlistadd]
+
+Ultimately, it should allow users to add the movie to their 'Must watch' list. For now, you only need this icon to render on the page's movie cards - it does not need to trigger any action.
+
+On completion, update your repository:
+~~~
+$ git add -A
+$ git commit -m "New button for Upcoming movies page."
+$ git push origin main
+~~~
+
+## Exercise 3.
+
+Currently, the Upcoming movies page uses the useEffect hook to retrieve the list of movies. Consequently, an HTTP request is made to TMDB every time the page is mounted. A better solution would be to cache the films in the browser using the react-query library. 
+
+__You are required__ to change the implementation to meet this requirement. On completion, update your repository:
+~~~
+$ git add -A
+$ git commit -m "Change upcoming movies page to use caching."
+$ git push origin main
+~~~
+
+## Exercise 4.
+
+Returning to the PlaylistAdd icon in Exercise 2, suppose clicking it adds the movie to a 'Must Watch' list, similar to the Favourites feature. __You are required__ to implement this requirement. For convenience, skip the creation of a seperate 'Must Watch' page in your solution.
+
+[Hint: Add a new state variable (of type array) to the MoviesContext for storing the ids of the movies tagged as 'must watch', and add a function for updating this state variable. Have a click event handler associated with the icon that calls the update function. To confirm the feature is working, use console.log to output the content of the new state variable array.]
+
+On completion, update your repository:
+~~~
+$ git add -A
+$ git commit -m "Tagging upcoming movies as must-watch."
+$ git push origin main
+~~~
+
+-----------------------------
+Ideally, the tagged movie should be reflected on the Upcoming movies page, as shown below:
+
+![][mustwatch]
+
+This feature would require significant refactoring, but you are not required to tackle this.
+
+
+[buttonw]: ./img/buttonw.png
+[mustwatch]: ./img/mustwatch.png
+[playlistadd]: ./img/playlistadd.png
+### Archive : Resources.
+
+ 
+Caching sample app.
+## Topic :  Fullstack App Deployment.
+
+ 
+AWS Cloudfront Service. Frontend and Backend integration. Custom Domain name.
+### Talk :  CloudFront Service.
+
+  
+Deploy a React app to the AWS platform using the S3 and Cloudfront services.
